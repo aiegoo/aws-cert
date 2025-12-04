@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS DevOps Study Cards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-box span {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .stat-box label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .mode-switch {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .mode-btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+            color: #667eea;
+        }
+
+        .mode-btn.active {
+            background: #FF6B6B;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .card-container {
+            perspective: 1000px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 800px;
+            min-height: 400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            padding: 40px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .card p, .card ul {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .card ul {
+            margin-left: 20px;
+        }
+
+        .card li {
+            margin-bottom: 10px;
+        }
+
+        .card .aws-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #FF9900;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .card .aws-link:hover {
+            background: #FF7700;
+            transform: translateY(-2px);
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: white;
+        }
+
+        .btn-prev {
+            background: #4ECDC4;
+        }
+
+        .btn-next {
+            background: #95E1D3;
+        }
+
+        .btn-flip {
+            background: #F38181;
+        }
+
+        .btn-know {
+            background: #51cf66;
+        }
+
+        .btn-review {
+            background: #ffd43b;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .progress-bar {
+            width: 100%;
+            max-width: 800px;
+            height: 10px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 10px;
+            margin: 0 auto 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #51cf66, #5be584);
+            transition: width 0.3s;
+            border-radius: 10px;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #FF9900;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .flashcard-mode .card {
+            min-height: 300px;
+        }
+
+        .reader-mode .card {
+            min-height: 500px;
+            cursor: default;
+        }
+
+        .reader-mode .card-back {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .card {
+                padding: 20px;
+                min-height: 350px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .hint {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 AWS DevOps Study Cards</h1>
+            <p>Master AWS DevOps concepts with interactive flashcards</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat-box">
+                <span id="currentCard">1</span>
+                <label>Current Card</label>
+            </div>
+            <div class="stat-box">
+                <span id="totalCards">30</span>
+                <label>Total Cards</label>
+            </div>
+            <div class="stat-box">
+                <span id="masteredCount">0</span>
+                <label>Mastered</label>
+            </div>
+        </div>
+
+        <div class="mode-switch">
+            <button class="mode-btn active" onclick="setMode('flashcard')">💡 Flashcard Mode</button>
+            <button class="mode-btn" onclick="setMode('reader')">📖 Reader Mode</button>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+
+        <div class="card-container">
+            <div class="card" id="card" onclick="flipCard()">
+                <div class="card-face card-front">
+                    <span class="category-badge" id="category">IAM</span>
+                    <h2 id="question">Loading...</h2>
+                </div>
+                <div class="card-face card-back">
+                    <h2>Answer</h2>
+                    <div id="answer"></div>
+                    <a href="#" target="_blank" class="aws-link" id="awsLink">📚 AWS Documentation</a>
+                </div>
+            </div>
+        </div>
+
+        <p class="hint" id="hint">💡 Click card to flip</p>
+
+        <div class="controls">
+            <button class="btn btn-prev" onclick="previousCard()">⬅️ Previous</button>
+            <button class="btn btn-flip" onclick="flipCard()">🔄 Flip Card</button>
+            <button class="btn btn-know" onclick="markKnown()">✅ I Know This</button>
+            <button class="btn btn-review" onclick="markReview()">📌 Review Later</button>
+            <button class="btn btn-next" onclick="nextCard()">Next ➡️</button>
+        </div>
+    </div>
+
+    <script>
+        const cards = [
+            {
+                category: "IAM",
+                question: "What is the difference between IAM Users and IAM Roles?",
+                answer: `<ul>
+                    <li><strong>IAM Users:</strong> Long-term credentials for individuals, has username/password or access keys</li>
+                    <li><strong>IAM Roles:</strong> Temporary credentials for services and applications, assumed by trusted entities</li>
+                    <li><strong>Key Difference:</strong> Roles have no permanent credentials and are assumed dynamically</li>
+                    <li><strong>Best Practice:</strong> Use roles for applications, users for people</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html"
+            },
+            {
+                category: "IAM",
+                question: "What is the AWS IAM policy structure?",
+                answer: `<p><strong>JSON Format with key elements:</strong></p>
+                <ul>
+                    <li><strong>Effect:</strong> Allow or Deny</li>
+                    <li><strong>Action:</strong> What operations (e.g., s3:GetObject)</li>
+                    <li><strong>Resource:</strong> Which AWS resources (ARN)</li>
+                    <li><strong>Condition:</strong> When policy applies (optional)</li>
+                </ul>
+                <p><strong>Example:</strong> { "Effect": "Allow", "Action": "s3:*", "Resource": "arn:aws:s3:::mybucket/*" }</p>`,
+                link: "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html"
+            },
+            {
+                category: "CI/CD",
+                question: "What are the stages of AWS CodePipeline?",
+                answer: `<ul>
+                    <li><strong>Source:</strong> Code repository (CodeCommit, GitHub, S3)</li>
+                    <li><strong>Build:</strong> Compile and test with CodeBuild</li>
+                    <li><strong>Test:</strong> Run automated tests</li>
+                    <li><strong>Deploy:</strong> Deploy to environments with CodeDeploy</li>
+                    <li><strong>Approval:</strong> Manual approval gates (optional)</li>
+                </ul>
+                <p>Each stage can have multiple actions running in parallel or sequence</p>`,
+                link: "https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html"
+            },
+            {
+                category: "CI/CD",
+                question: "What deployment strategies does CodeDeploy support?",
+                answer: `<ul>
+                    <li><strong>All-at-once:</strong> Deploy to all instances simultaneously (fastest, highest risk)</li>
+                    <li><strong>Rolling:</strong> Deploy in batches to maintain capacity</li>
+                    <li><strong>Blue/Green:</strong> Create new environment, shift traffic when ready</li>
+                    <li><strong>Canary:</strong> Deploy to small percentage first, then rest</li>
+                    <li><strong>Linear:</strong> Gradually increase deployment percentage</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html"
+            },
+            {
+                category: "CloudFormation",
+                question: "What are the main sections of a CloudFormation template?",
+                answer: `<ul>
+                    <li><strong>Parameters:</strong> Input values when creating/updating stack</li>
+                    <li><strong>Resources:</strong> AWS resources to create (REQUIRED)</li>
+                    <li><strong>Outputs:</strong> Values to export or display</li>
+                    <li><strong>Mappings:</strong> Static key-value pairs</li>
+                    <li><strong>Conditions:</strong> Control resource creation</li>
+                    <li><strong>Metadata:</strong> Additional information</li>
+                </ul>
+                <p><strong>Only Resources section is mandatory!</strong></p>`,
+                link: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html"
+            },
+            {
+                category: "CloudFormation",
+                question: "What is a CloudFormation Change Set?",
+                answer: `<p><strong>Preview changes before execution</strong></p>
+                <ul>
+                    <li>Shows what will be added, modified, or deleted</li>
+                    <li>Identifies resources that will be replaced</li>
+                    <li>Can be reviewed before execution</li>
+                    <li>Helps prevent accidental destructive changes</li>
+                    <li>Best practice for production updates</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html"
+            },
+            {
+                category: "CloudWatch",
+                question: "What types of CloudWatch metrics exist?",
+                answer: `<ul>
+                    <li><strong>Default Metrics:</strong> Automatically provided (CPU, Network, Disk I/O)</li>
+                    <li><strong>Custom Metrics:</strong> Application-specific metrics you publish</li>
+                    <li><strong>High-Resolution:</strong> Sub-minute granularity (down to 1 second)</li>
+                    <li><strong>Standard Resolution:</strong> 1-minute granularity</li>
+                </ul>
+                <p><strong>Note:</strong> Memory usage is NOT a default metric - must use CloudWatch agent</p>`,
+                link: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html"
+            },
+            {
+                category: "CloudWatch",
+                question: "How do CloudWatch Alarms work?",
+                answer: `<ul>
+                    <li><strong>States:</strong> OK, ALARM, INSUFFICIENT_DATA</li>
+                    <li><strong>Evaluation:</strong> Based on metric thresholds over time periods</li>
+                    <li><strong>Actions:</strong> SNS notifications, Auto Scaling, EC2 actions</li>
+                    <li><strong>Composite Alarms:</strong> Combine multiple alarms with AND/OR logic</li>
+                </ul>
+                <p>Example: Trigger when CPU > 80% for 2 consecutive 5-minute periods</p>`,
+                link: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html"
+            },
+            {
+                category: "Security",
+                question: "What is the principle of least privilege in IAM?",
+                answer: `<p><strong>Grant only the minimum permissions needed</strong></p>
+                <ul>
+                    <li>Start with minimal access, add as needed</li>
+                    <li>Use specific actions instead of wildcards when possible</li>
+                    <li>Scope permissions to specific resources</li>
+                    <li>Regularly review and remove unused permissions</li>
+                    <li>Use IAM Access Analyzer to identify excessive permissions</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"
+            },
+            {
+                category: "Security",
+                question: "How do you securely manage application secrets in AWS?",
+                answer: `<ul>
+                    <li><strong>AWS Secrets Manager:</strong> Full lifecycle management, automatic rotation</li>
+                    <li><strong>Systems Manager Parameter Store:</strong> Simpler, cheaper option</li>
+                    <li><strong>Never:</strong> Hard-code credentials in code</li>
+                    <li><strong>Never:</strong> Store credentials in environment variables</li>
+                    <li><strong>Best Practice:</strong> Use IAM roles for applications</li>
+                    <li><strong>Encryption:</strong> Always encrypt secrets at rest with KMS</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html"
+            },
+            {
+                category: "CodeBuild",
+                question: "What is the buildspec.yml file?",
+                answer: `<p><strong>Defines build commands and settings</strong></p>
+                <ul>
+                    <li><strong>install:</strong> Install dependencies</li>
+                    <li><strong>pre_build:</strong> Commands before build (e.g., login to ECR)</li>
+                    <li><strong>build:</strong> Main build commands</li>
+                    <li><strong>post_build:</strong> Commands after build (e.g., push to registry)</li>
+                    <li><strong>artifacts:</strong> Files to output</li>
+                    <li><strong>cache:</strong> Files to cache for faster builds</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html"
+            },
+            {
+                category: "Lambda",
+                question: "How do you give Lambda permissions to access AWS services?",
+                answer: `<p><strong>Use Lambda Execution Role (IAM Role)</strong></p>
+                <ul>
+                    <li>Attached to the Lambda function</li>
+                    <li>Grants permissions to AWS services (S3, DynamoDB, etc.)</li>
+                    <li>Includes CloudWatch Logs permissions by default</li>
+                    <li>Follow least privilege principle</li>
+                    <li>Can use AWS managed policies or custom policies</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html"
+            },
+            {
+                category: "VPC",
+                question: "What are Security Groups vs Network ACLs?",
+                answer: `<p><strong>Security Groups:</strong></p>
+                <ul>
+                    <li>Stateful (return traffic allowed automatically)</li>
+                    <li>Instance level</li>
+                    <li>Allow rules only</li>
+                    <li>Evaluate all rules</li>
+                </ul>
+                <p><strong>Network ACLs:</strong></p>
+                <ul>
+                    <li>Stateless (return traffic must be explicitly allowed)</li>
+                    <li>Subnet level</li>
+                    <li>Allow and Deny rules</li>
+                    <li>Processed in order</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html"
+            },
+            {
+                category: "Auto Scaling",
+                question: "What are the types of Auto Scaling policies?",
+                answer: `<ul>
+                    <li><strong>Target Tracking:</strong> Maintain specific metric value (e.g., CPU at 50%)</li>
+                    <li><strong>Step Scaling:</strong> Scale based on multiple CloudWatch alarm thresholds</li>
+                    <li><strong>Simple Scaling:</strong> Single adjustment based on alarm (legacy)</li>
+                    <li><strong>Scheduled Scaling:</strong> Scale at specific times</li>
+                    <li><strong>Predictive Scaling:</strong> ML-based forecasting</li>
+                </ul>
+                <p><strong>Recommended:</strong> Target Tracking for most use cases</p>`,
+                link: "https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html"
+            },
+            {
+                category: "Containers",
+                question: "What is the difference between ECS and EKS?",
+                answer: `<p><strong>ECS (Elastic Container Service):</strong></p>
+                <ul>
+                    <li>AWS-native container orchestration</li>
+                    <li>Simpler, easier to use</li>
+                    <li>Deep AWS integration</li>
+                    <li>Lower cost</li>
+                </ul>
+                <p><strong>EKS (Elastic Kubernetes Service):</strong></p>
+                <ul>
+                    <li>Managed Kubernetes</li>
+                    <li>Industry standard</li>
+                    <li>Portable across clouds</li>
+                    <li>More complex, powerful features</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html"
+            },
+            {
+                category: "Containers",
+                question: "What is AWS Fargate?",
+                answer: `<p><strong>Serverless compute engine for containers</strong></p>
+                <ul>
+                    <li>No EC2 instances to manage</li>
+                    <li>Works with both ECS and EKS</li>
+                    <li>Pay only for resources used</li>
+                    <li>Automatic scaling</li>
+                    <li>Isolated compute environment per task</li>
+                    <li>Ideal for microservices and batch jobs</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html"
+            },
+            {
+                category: "X-Ray",
+                question: "What is AWS X-Ray used for?",
+                answer: `<p><strong>Distributed tracing service for debugging</strong></p>
+                <ul>
+                    <li>Track requests across microservices</li>
+                    <li>Identify performance bottlenecks</li>
+                    <li>Visualize service map</li>
+                    <li>Analyze errors and exceptions</li>
+                    <li>Filter traces by URL, status code, etc.</li>
+                    <li>Integrates with Lambda, ECS, API Gateway</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html"
+            },
+            {
+                category: "S3",
+                question: "What are S3 storage classes for DevOps artifacts?",
+                answer: `<ul>
+                    <li><strong>S3 Standard:</strong> Frequently accessed data (active artifacts)</li>
+                    <li><strong>S3 Intelligent-Tiering:</strong> Automatic cost optimization</li>
+                    <li><strong>S3 Standard-IA:</strong> Infrequent access (older builds)</li>
+                    <li><strong>S3 Glacier:</strong> Long-term archive (compliance)</li>
+                    <li><strong>Best Practice:</strong> Use lifecycle policies to auto-transition</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html"
+            },
+            {
+                category: "EventBridge",
+                question: "What is Amazon EventBridge?",
+                answer: `<p><strong>Serverless event bus for application integration</strong></p>
+                <ul>
+                    <li>React to AWS service events</li>
+                    <li>Schedule events (cron/rate expressions)</li>
+                    <li>Custom events from applications</li>
+                    <li>Route to Lambda, Step Functions, etc.</li>
+                    <li>Event filtering and transformation</li>
+                    <li>Replaced CloudWatch Events</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html"
+            },
+            {
+                category: "Systems Manager",
+                question: "What is AWS Systems Manager Parameter Store?",
+                answer: `<p><strong>Secure storage for configuration and secrets</strong></p>
+                <ul>
+                    <li>Store strings, encrypted strings, lists</li>
+                    <li>Organize in hierarchies (paths)</li>
+                    <li>Version tracking</li>
+                    <li>Free tier available</li>
+                    <li>Integration with CloudFormation, Lambda</li>
+                    <li>Alternative to Secrets Manager (simpler, cheaper)</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html"
+            },
+            {
+                category: "RDS",
+                question: "How do you implement RDS backups in DevOps?",
+                answer: `<ul>
+                    <li><strong>Automated Backups:</strong> Daily snapshots, transaction logs</li>
+                    <li><strong>Retention:</strong> 0-35 days (0 disables)</li>
+                    <li><strong>Manual Snapshots:</strong> User-initiated, kept until deleted</li>
+                    <li><strong>Cross-Region:</strong> Copy snapshots for disaster recovery</li>
+                    <li><strong>Point-in-Time Recovery:</strong> Restore to any second in retention</li>
+                    <li><strong>Best Practice:</strong> Enable automated backups in production</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html"
+            },
+            {
+                category: "ELB",
+                question: "What are the types of Elastic Load Balancers?",
+                answer: `<ul>
+                    <li><strong>Application Load Balancer (ALB):</strong> HTTP/HTTPS, layer 7, path-based routing</li>
+                    <li><strong>Network Load Balancer (NLB):</strong> TCP/UDP, layer 4, ultra-low latency</li>
+                    <li><strong>Gateway Load Balancer:</strong> Layer 3, for virtual appliances</li>
+                    <li><strong>Classic Load Balancer:</strong> Legacy (not recommended)</li>
+                </ul>
+                <p><strong>Most Common:</strong> ALB for web apps, NLB for high performance</p>`,
+                link: "https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html"
+            },
+            {
+                category: "KMS",
+                question: "What is AWS KMS and when to use it?",
+                answer: `<p><strong>Key Management Service for encryption keys</strong></p>
+                <ul>
+                    <li>Create and manage cryptographic keys</li>
+                    <li>Integrated with most AWS services</li>
+                    <li>Automatic key rotation</li>
+                    <li>Audit key usage with CloudTrail</li>
+                    <li>Customer vs AWS managed keys</li>
+                    <li><strong>Use for:</strong> Encrypting data at rest (S3, EBS, RDS)</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/kms/latest/developerguide/overview.html"
+            },
+            {
+                category: "CodeCommit",
+                question: "How does CodeCommit authentication work?",
+                answer: `<ul>
+                    <li><strong>HTTPS:</strong> Git credentials from IAM or credential helper</li>
+                    <li><strong>SSH:</strong> SSH keys uploaded to IAM user</li>
+                    <li><strong>Best Practice:</strong> Use IAM roles when possible</li>
+                    <li>Git credential helper for AWS CLI profiles</li>
+                    <li>Fine-grained permissions via IAM policies</li>
+                    <li>MFA can be required for specific operations</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control.html"
+            },
+            {
+                category: "Step Functions",
+                question: "What is AWS Step Functions?",
+                answer: `<p><strong>Serverless workflow orchestration</strong></p>
+                <ul>
+                    <li>Coordinate multiple AWS services</li>
+                    <li>Visual workflow designer</li>
+                    <li>Built-in error handling and retry logic</li>
+                    <li>Parallel and sequential execution</li>
+                    <li>State machines defined in JSON</li>
+                    <li>Ideal for complex DevOps pipelines</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html"
+            },
+            {
+                category: "DynamoDB",
+                question: "What are DynamoDB capacity modes?",
+                answer: `<p><strong>On-Demand Mode:</strong></p>
+                <ul>
+                    <li>Pay per request</li>
+                    <li>No capacity planning</li>
+                    <li>Ideal for unpredictable workloads</li>
+                </ul>
+                <p><strong>Provisioned Mode:</strong></p>
+                <ul>
+                    <li>Specify read/write capacity units</li>
+                    <li>Auto Scaling available</li>
+                    <li>More cost-effective for steady traffic</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html"
+            },
+            {
+                category: "CDK",
+                question: "What is AWS CDK (Cloud Development Kit)?",
+                answer: `<p><strong>Define infrastructure using programming languages</strong></p>
+                <ul>
+                    <li>Supports TypeScript, Python, Java, C#, Go</li>
+                    <li>Object-oriented constructs</li>
+                    <li>Built-in best practices</li>
+                    <li>Generates CloudFormation templates</li>
+                    <li>Reusable components (constructs)</li>
+                    <li>Better than writing raw CloudFormation</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/cdk/v2/guide/home.html"
+            },
+            {
+                category: "CloudWatch Logs",
+                question: "How do you query CloudWatch Logs?",
+                answer: `<ul>
+                    <li><strong>CloudWatch Logs Insights:</strong> SQL-like query language</li>
+                    <li>Filter by fields, patterns, time ranges</li>
+                    <li>Aggregate and visualize data</li>
+                    <li>Save and share queries</li>
+                    <li>Export results to S3</li>
+                    <li>Example: fields @timestamp, @message | filter @message like /ERROR/</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html"
+            },
+            {
+                category: "API Gateway",
+                question: "What are API Gateway deployment stages?",
+                answer: `<ul>
+                    <li>Named references to API deployments (dev, test, prod)</li>
+                    <li>Each stage has unique URL</li>
+                    <li>Stage variables for environment-specific config</li>
+                    <li>Canary deployments available</li>
+                    <li>Separate throttling and caching per stage</li>
+                    <li>Enable CloudWatch logging per stage</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html"
+            },
+            {
+                category: "Elastic Beanstalk",
+                question: "What is AWS Elastic Beanstalk deployment strategy?",
+                answer: `<ul>
+                    <li><strong>All at once:</strong> Deploy to all instances (downtime)</li>
+                    <li><strong>Rolling:</strong> Deploy in batches (reduced capacity)</li>
+                    <li><strong>Rolling with additional batch:</strong> Maintain full capacity</li>
+                    <li><strong>Immutable:</strong> New instances, swap when ready</li>
+                    <li><strong>Traffic splitting:</strong> Canary testing</li>
+                    <li><strong>Blue/Green:</strong> Separate environment swap</li>
+                </ul>`,
+                link: "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.deploy-existing-version.html"
+            }
+        ];
+
+        let currentIndex = 0;
+        let masteredCards = new Set();
+        let reviewCards = new Set();
+        let mode = 'flashcard';
+
+        function updateCard() {
+            const card = cards[currentIndex];
+            const cardElement = document.getElementById('card');
+            
+            cardElement.classList.remove('flipped');
+            
+            document.getElementById('category').textContent = card.category;
+            document.getElementById('question').textContent = card.question;
+            document.getElementById('answer').innerHTML = card.answer;
+            document.getElementById('awsLink').href = card.link;
+            document.getElementById('currentCard').textContent = currentIndex + 1;
+            document.getElementById('totalCards').textContent = cards.length;
+            document.getElementById('masteredCount').textContent = masteredCards.size;
+            
+            const progress = ((currentIndex + 1) / cards.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function flipCard() {
+            if (mode === 'flashcard') {
+                document.getElementById('card').classList.toggle('flipped');
+            }
+        }
+
+        function nextCard() {
+            currentIndex = (currentIndex + 1) % cards.length;
+            updateCard();
+        }
+
+        function previousCard() {
+            currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+            updateCard();
+        }
+
+        function markKnown() {
+            masteredCards.add(currentIndex);
+            nextCard();
+        }
+
+        function markReview() {
+            reviewCards.add(currentIndex);
+            nextCard();
+        }
+
+        function setMode(newMode) {
+            mode = newMode;
+            const buttons = document.querySelectorAll('.mode-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const container = document.querySelector('.card-container');
+            if (newMode === 'reader') {
+                container.classList.add('reader-mode');
+                container.classList.remove('flashcard-mode');
+                document.getElementById('hint').textContent = '📖 Reading mode - Use navigation buttons';
+                document.getElementById('card').classList.remove('flipped');
+            } else {
+                container.classList.add('flashcard-mode');
+                container.classList.remove('reader-mode');
+                document.getElementById('hint').textContent = '💡 Click card to flip';
+            }
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') previousCard();
+            if (e.key === 'ArrowRight') nextCard();
+            if (e.key === ' ') flipCard();
+            if (e.key === 'k') markKnown();
+            if (e.key === 'r') markReview();
+        });
+
+        // Initialize
+        updateCard();
+    </script>
+</body>
+</html>

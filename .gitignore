@@ -1,1 +1,18 @@
 *.Identifier
+
+# Large PDF chunks
+chunks_ML Engineering on AWS/
+
+# Python virtual environment
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# OCR outputs
+processed_materials/
+*.json
+
+# Logs
+logs/
+*.log

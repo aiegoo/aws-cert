@@ -1,0 +1,3 @@
+[submodule "ocr-proven"]
+	path = ocr-proven
+	url = git@github.com:aiegoo/oreumi-bull4team.git

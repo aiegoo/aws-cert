@@ -1,0 +1,35 @@
+# Korean OCR Study Application - Dependencies
+# Core OCR and PDF Processing
+PyMuPDF>=1.26.0
+easyocr>=1.7.0
+pytesseract>=0.3.10
+
+# Image Processing
+Pillow>=10.0.0
+opencv-python>=4.8.0
+numpy>=1.24.0
+
+# Text Processing and NLP for Korean
+konlpy>=0.6.0
+python-Levenshtein>=0.21.0
+
+# Data Handling
+pandas>=2.0.0
+openpyxl>=3.1.0
+
+# File and Path Management
+pathlib>=1.0.1
+
+# JSON and Configuration
+python-dotenv>=1.0.0
+
+# Progress Bars and CLI
+tqdm>=4.65.0
+click>=8.1.0
+
+# Logging
+colorlog>=6.7.0
+
+# Optional: GPU acceleration (uncomment if CUDA available)
+# torch>=2.0.0
+# torchvision>=0.15.0

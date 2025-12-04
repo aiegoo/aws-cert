@@ -1,0 +1,33 @@
+============================================================
+Korean OCR Application - Setup Verification
+============================================================
+Python Version: 3.13.5
+✓ Python version OK
+
+Checking Python packages:
+✗ PyMuPDF - NOT INSTALLED
+✗ EasyOCR - NOT INSTALLED
+✓ Pillow
+✗ opencv-python - NOT INSTALLED
+✓ NumPy
+
+Checking project files:
+✓ ocr_study_app.py - Main application
+✓ requirements.txt - Dependencies list
+✓ install.sh - Installation script
+✓ OCR_README.md - Documentation
+
+Checking directories:
+✓ data/input/
+✓ data/output/
+✓ data/chunks/
+✓ logs/
+
+============================================================
+⚠️  Setup verification FAILED
+
+Missing dependencies. Please run:
+  ./install.sh
+or
+  pip install -r requirements.txt
+============================================================
