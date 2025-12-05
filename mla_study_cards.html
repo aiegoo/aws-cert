@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS MLA-C01 Study Cards - Complete Exam Coverage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .exam-info {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-box span {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .stat-box label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .domain-filter {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .domain-btn {
+            padding: 8px 16px;
+            border: 2px solid white;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .domain-btn.active {
+            background: white;
+            color: #667eea;
+        }
+
+        .mode-switch {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .mode-btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+            color: #667eea;
+        }
+
+        .mode-btn.active {
+            background: #FF6B6B;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .card-container {
+            perspective: 1000px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 900px;
+            min-height: 450px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            padding: 40px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow-y: auto;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .card p, .card ul {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .card ul {
+            margin-left: 20px;
+        }
+
+        .card li {
+            margin-bottom: 10px;
+        }
+
+        .card .aws-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #FF9900;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .card .aws-link:hover {
+            background: #FF7700;
+            transform: translateY(-2px);
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: white;
+        }
+
+        .btn-prev {
+            background: #4ECDC4;
+        }
+
+        .btn-next {
+            background: #95E1D3;
+        }
+
+        .btn-flip {
+            background: #F38181;
+        }
+
+        .btn-know {
+            background: #51cf66;
+        }
+
+        .btn-review {
+            background: #ffd43b;
+        }
+
+        .btn-shuffle {
+            background: #8b5cf6;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .progress-bar {
+            width: 100%;
+            max-width: 900px;
+            height: 10px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 10px;
+            margin: 0 auto 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #51cf66, #5be584);
+            transition: width 0.3s;
+            border-radius: 10px;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #FF9900;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .domain-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #8b5cf6;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            margin-right: 10px;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+
+        .difficulty.easy {
+            background: #51cf66;
+            color: white;
+        }
+
+        .difficulty.medium {
+            background: #ffd43b;
+            color: #333;
+        }
+
+        .difficulty.hard {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .card {
+                padding: 20px;
+                min-height: 400px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .hint {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .card strong {
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 AWS ML Engineer Associate (MLA-C01)</h1>
+            <p>Complete Exam Coverage - 65 Question Format</p>
+            <div class="exam-info">
+                <strong>Exam Domains:</strong> Data Engineering (34%) | Model Development (26%) | Deployment & MLOps (22%) | ML Solutions (18%)
+            </div>
+        </header>
+
+        <div class="stats">
+            <div class="stat-box">
+                <span id="currentCard">1</span>
+                <label>Current Card</label>
+            </div>
+            <div class="stat-box">
+                <span id="totalCards">65</span>
+                <label>Total Cards</label>
+            </div>
+            <div class="stat-box">
+                <span id="masteredCount">0</span>
+                <label>Mastered</label>
+            </div>
+            <div class="stat-box">
+                <span id="domainProgress">0%</span>
+                <label>Domain Coverage</label>
+            </div>
+        </div>
+
+        <div class="domain-filter">
+            <button class="domain-btn active" onclick="filterDomain('all')">All Domains</button>
+            <button class="domain-btn" onclick="filterDomain('data-engineering')">Data Engineering (34%)</button>
+            <button class="domain-btn" onclick="filterDomain('model-development')">Model Development (26%)</button>
+            <button class="domain-btn" onclick="filterDomain('deployment')">Deployment & MLOps (22%)</button>
+            <button class="domain-btn" onclick="filterDomain('ml-solutions')">ML Solutions (18%)</button>
+        </div>
+
+        <div class="mode-switch">
+            <button class="mode-btn active" onclick="setMode('flashcard')">💡 Flashcard Mode</button>
+            <button class="mode-btn" onclick="setMode('reader')">📖 Reader Mode</button>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+
+        <div class="card-container">
+            <div class="card" id="card" onclick="flipCard()">
+                <div class="card-face card-front">
+                    <div>
+                        <span class="domain-badge" id="domainBadge">Data Engineering</span>
+                        <span class="category-badge" id="category">SageMaker</span>
+                        <span class="difficulty medium" id="difficulty">Medium</span>
+                    </div>
+                    <h2 id="question">Loading...</h2>
+                </div>
+                <div class="card-face card-back">
+                    <h2>Answer</h2>
+                    <div id="answer"></div>
+                    <a href="#" target="_blank" class="aws-link" id="awsLink">📚 AWS Documentation</a>
+                </div>
+            </div>
+        </div>
+
+        <p class="hint" id="hint">💡 Click card to flip | Arrow keys to navigate | Space to flip</p>
+
+        <div class="controls">
+            <button class="btn btn-prev" onclick="previousCard()">⬅️ Previous</button>
+            <button class="btn btn-flip" onclick="flipCard()">🔄 Flip</button>
+            <button class="btn btn-shuffle" onclick="shuffleCards()">🔀 Shuffle</button>
+            <button class="btn btn-know" onclick="markKnown()">✅ Know</button>
+            <button class="btn btn-review" onclick="markReview()">📌 Review</button>
+            <button class="btn btn-next" onclick="nextCard()">Next ➡️</button>
+        </div>
+    </div>
+
+    <script src="mla_cards_data.js"></script>
+    <script>
+        let currentIndex = 0;
+        let masteredCards = new Set();
+        let reviewCards = new Set();
+        let mode = 'flashcard';
+        let currentDomain = 'all';
+        let filteredCards = [...cards];
+
+        function filterDomain(domain) {
+            currentDomain = domain;
+            
+            // Update button states
+            document.querySelectorAll('.domain-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter cards
+            if (domain === 'all') {
+                filteredCards = [...cards];
+            } else {
+                filteredCards = cards.filter(card => card.domain === domain);
+            }
+            
+            currentIndex = 0;
+            updateCard();
+            updateDomainProgress();
+        }
+
+        function updateDomainProgress() {
+            const domainCards = cards.filter(card => 
+                currentDomain === 'all' || card.domain === currentDomain
+            );
+            const masteredInDomain = domainCards.filter((_, idx) => 
+                masteredCards.has(cards.indexOf(domainCards[idx]))
+            ).length;
+            const progress = domainCards.length > 0 
+                ? Math.round((masteredInDomain / domainCards.length) * 100)
+                : 0;
+            document.getElementById('domainProgress').textContent = progress + '%';
+        }
+
+        function updateCard() {
+            const card = filteredCards[currentIndex];
+            const cardElement = document.getElementById('card');
+            
+            cardElement.classList.remove('flipped');
+            
+            document.getElementById('domainBadge').textContent = card.domainLabel;
+            document.getElementById('category').textContent = card.category;
+            document.getElementById('difficulty').textContent = card.difficulty;
+            document.getElementById('difficulty').className = 'difficulty ' + card.difficulty.toLowerCase();
+            document.getElementById('question').textContent = card.question;
+            document.getElementById('answer').innerHTML = card.answer;
+            document.getElementById('awsLink').href = card.link;
+            document.getElementById('currentCard').textContent = currentIndex + 1;
+            document.getElementById('totalCards').textContent = filteredCards.length;
+            document.getElementById('masteredCount').textContent = masteredCards.size;
+            
+            const progress = ((currentIndex + 1) / filteredCards.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function flipCard() {
+            if (mode === 'flashcard') {
+                document.getElementById('card').classList.toggle('flipped');
+            }
+        }
+
+        function nextCard() {
+            currentIndex = (currentIndex + 1) % filteredCards.length;
+            updateCard();
+        }
+
+        function previousCard() {
+            currentIndex = (currentIndex - 1 + filteredCards.length) % filteredCards.length;
+            updateCard();
+        }
+
+        function markKnown() {
+            const actualIndex = cards.indexOf(filteredCards[currentIndex]);
+            masteredCards.add(actualIndex);
+            updateDomainProgress();
+            nextCard();
+        }
+
+        function markReview() {
+            const actualIndex = cards.indexOf(filteredCards[currentIndex]);
+            reviewCards.add(actualIndex);
+            nextCard();
+        }
+
+        function shuffleCards() {
+            filteredCards.sort(() => Math.random() - 0.5);
+            currentIndex = 0;
+            updateCard();
+        }
+
+        function setMode(newMode) {
+            mode = newMode;
+            const buttons = document.querySelectorAll('.mode-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const container = document.querySelector('.card-container');
+            if (newMode === 'reader') {
+                container.classList.add('reader-mode');
+                container.classList.remove('flashcard-mode');
+                document.getElementById('hint').textContent = '📖 Reading mode - Use navigation buttons';
+                document.getElementById('card').classList.remove('flipped');
+            } else {
+                container.classList.add('flashcard-mode');
+                container.classList.remove('reader-mode');
+                document.getElementById('hint').textContent = '💡 Click card to flip | Arrow keys to navigate | Space to flip';
+            }
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') previousCard();
+            if (e.key === 'ArrowRight') nextCard();
+            if (e.key === ' ') { e.preventDefault(); flipCard(); }
+            if (e.key === 'k') markKnown();
+            if (e.key === 'r') markReview();
+            if (e.key === 's') shuffleCards();
+        });
+
+        // Initialize
+        updateCard();
+        updateDomainProgress();
+    </script>
+</body>
+</html>
