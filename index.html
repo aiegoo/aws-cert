@@ -3,210 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWS MLA-C01 Study Hub</title>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <title>AWS Certified Machine Learning Engineer - Associate (MLA-C01) Exam Study Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amazon+Ember:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --aws-navy: #232f3e;
+            --aws-orange: #ff9900;
+            --aws-squid-ink: #232f3e;
+            --aws-sea-blue: #0073bb;
+            --aws-light-grey: #eaeded;
+            --aws-dark-grey: #414d5c;
+            --white: #ffffff;
+            --light-blue: #f0f8ff;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
+            font-family: 'Amazon Ember', sans-serif;
+            background-color: var(--aws-light-grey);
+            color: var(--aws-squid-ink);
+            margin: 0;
+            line-height: 1.6;
         }
-        .container { max-width: 1200px; margin: 0 auto; }
-        header {
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
             text-align: center;
-            color: white;
-            margin-bottom: 40px;
+            padding: 2rem 0;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 2rem;
         }
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--aws-navy);
+            margin: 0;
         }
+
+        .header p {
+            font-size: 1.2rem;
+            color: var(--aws-dark-grey);
+        }
+        
         .section-title {
-            color: white;
-            font-size: 1.5rem;
-            margin: 30px 0 15px 0;
+            font-size: 2rem;
+            color: var(--aws-navy);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--aws-orange);
         }
-        .card-grid {
+
+        .domain-grid, .resource-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
-        .study-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
+
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             text-decoration: none;
-            color: #333;
-            display: block;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
         }
-        .study-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
         }
-        .card-icon { font-size: 3rem; margin-bottom: 15px; }
+
+        .domain-card .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .domain-card .percentage {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--aws-orange);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
         .card-title {
-            font-size: 1.4rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #667eea;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--aws-sea-blue);
+            margin-bottom: 0.5rem;
         }
-        .card-desc { color: #666; line-height: 1.6; margin-bottom: 15px; }
-        .badge {
-            background: #667eea;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-right: 8px;
+
+        .card-description {
+            font-size: 0.95rem;
+            color: var(--aws-dark-grey);
+            flex-grow: 1;
         }
-        .content-viewer {
-            display: none;
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            margin-top: 30px;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-        .content-viewer.active { display: block; }
-        .back-btn {
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
-        .content-viewer h1 { color: #667eea; margin-top: 30px; }
-        .content-viewer h2 { color: #764ba2; margin-top: 20px; }
-        .content-viewer code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; }
-        .content-viewer pre {
-            background: #2d2d2d;
-            color: #f8f8f2;
-            padding: 20px;
-            border-radius: 5px;
-            overflow-x: auto;
-        }
-        .content-viewer table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        .content-viewer th, .content-viewer td { padding: 12px; border: 1px solid #ddd; }
-        .content-viewer th { background: #667eea; color: white; }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <header>
-            <h1>🎓 AWS MLA-C01 Study Hub</h1>
-            <p style="color:white;font-size:1.2rem;">Machine Learning Engineer Associate Certification</p>
+        <header class="header">
+            <h1>AWS Certified Machine Learning Engineer - Associate</h1>
+            <p>(MLA-C01) Exam Study Hub</p>
         </header>
 
-        <div id="main-view">
-            <h2 class="section-title">📖 Study Guides (520 Pages)</h2>
-            <div class="card-grid">
-                <a href="#" onclick="loadContent('ml_engineering_english_content.md'); return false;" class="study-card">
-                    <div class="card-icon">📚</div>
-                    <div class="card-title">Modules 0-6: Foundations</div>
-                    <div class="card-desc">ML fundamentals, data processing, feature engineering, model selection & training</div>
-                    <span class="badge">Core</span><span class="badge">1,526 lines</span>
+        <section id="exam-domains">
+            <h2 class="section-title">Exam Domains</h2>
+            <div class="domain-grid">
+                
+                <a href="ml_engineering_reader.html?filter=Data%20Preparation" class="card domain-card">
+                    <div class="card-header">
+                        <div class="card-icon">📊</div>
+                        <div class="percentage">28%</div>
+                    </div>
+                    <h3 class="card-title">Domain 1: Data Preparation for Machine Learning</h3>
+                    <p class="card-description">Ingesting, transforming, validating, and preparing data for ML modeling.</p>
                 </a>
                 
-                <a href="#" onclick="loadContent('ml_engineering_english_part2.md'); return false;" class="study-card">
-                    <div class="card-icon">⚙️</div>
-                    <div class="card-title">Modules 7-9: Operations</div>
-                    <div class="card-desc">Model evaluation, tuning, deployment, security</div>
-                    <span class="badge">Operations</span>
+                <a href="ml_engineering_reader.html?filter=Model%20Development" class="card domain-card">
+                    <div class="card-header">
+                        <div class="card-icon">🧠</div>
+                        <div class="percentage">26%</div>
+                    </div>
+                    <h3 class="card-title">Domain 2: ML Model Development</h3>
+                    <p class="card-description">Selecting modeling approaches, training models, tuning hyperparameters, and analyzing model performance.</p>
                 </a>
                 
-                <a href="#" onclick="loadContent('ml_engineering_english_part3.md'); return false;" class="study-card">
-                    <div class="card-icon">🔄</div>
-                    <div class="card-title">Modules 10-12: MLOps</div>
-                    <div class="card-desc">MLOps, monitoring, course summary, exam prep</div>
-                    <span class="badge">MLOps</span>
+                <a href="ml_engineering_reader.html?filter=Deployment%20Orchestration" class="card domain-card">
+                    <div class="card-header">
+                        <div class="card-icon">🚀</div>
+                        <div class="percentage">22%</div>
+                    </div>
+                    <h3 class="card-title">Domain 3: Deployment & Orchestration</h3>
+                    <p class="card-description">Choosing deployment infrastructure, provisioning resources, and automating ML workflows.</p>
                 </a>
-            </div>
+                
+                <a href="ml_engineering_reader.html?filter=Monitoring%20Security" class="card domain-card">
+                    <div class="card-header">
+                        <div class="card-icon">🛡️</div>
+                        <div class="percentage">24%</div>
+                    </div>
+                    <h3 class="card-title">Domain 4: ML Solution Monitoring, Maintenance, and Security</h3>
+                    <p class="card-description">Monitoring models, data, and infrastructure for issues, and securing ML systems.</p>
+                </a>
 
-            <h2 class="section-title">🎴 Flashcards & Quizzes</h2>
-            <div class="card-grid">
-                <a href="mla_study_cards.html" class="study-card">
+            </div>
+        </section>
+
+        <section id="practice-resources" style="margin-top: 3rem;">
+            <h2 class="section-title">Flashcards & Quizzes</h2>
+            <div class="resource-grid">
+
+                <a href="mla_study_cards.html" class="card">
                     <div class="card-icon">🎯</div>
-                    <div class="card-title">MLA-C01 Flashcards</div>
-                    <div class="card-desc">65 comprehensive flashcards - all exam domains</div>
-                    <span class="badge">65 cards</span>
+                    <h3 class="card-title">MLA-C01 Flashcards</h3>
+                    <p class="card-description">65 comprehensive flashcards covering all exam domains.</p>
                 </a>
                 
-                <a href="storage_study_cards.html" class="study-card">
+                <a href="storage_study_cards.html" class="card">
                     <div class="card-icon">💾</div>
-                    <div class="card-title">Storage & Lakehouse</div>
-                    <div class="card-desc">S3, Redshift, Lake Formation flashcards</div>
-                    <span class="badge">22 cards</span>
+                    <h3 class="card-title">Storage & Lakehouse</h3>
+                    <p class="card-description">S3, Redshift, and Lake Formation flashcards.</p>
                 </a>
                 
-                <a href="study_cards.html" class="study-card">
+                <a href="study_cards.html" class="card">
                     <div class="card-icon">⚡</div>
-                    <div class="card-title">DevOps Flashcards</div>
-                    <div class="card-desc">AWS DevOps concepts & practices</div>
-                    <span class="badge">30 cards</span>
+                    <h3 class="card-title">DevOps Flashcards</h3>
+                    <p class="card-description">AWS DevOps concepts and practices.</p>
                 </a>
                 
-                <a href="storage_quiz.html" class="study-card">
+                <a href="storage_quiz.html" class="card">
                     <div class="card-icon">✅</div>
-                    <div class="card-title">Storage Quiz</div>
-                    <div class="card-desc">20-question timed practice quiz</div>
-                    <span class="badge">Timed</span>
+                    <h3 class="card-title">Storage Quiz</h3>
+                    <p class="card-description">20-question timed practice quiz on storage services.</p>
                 </a>
-            </div>
 
-            <h2 class="section-title">📑 Reference</h2>
-            <div class="card-grid">
-                <a href="ml_engineering_reader.html" class="study-card">
+            </div>
+        </section>
+        
+        <section id="other-resources" style="margin-top: 3rem;">
+            <h2 class="section-title">Other Resources</h2>
+             <div class="resource-grid">
+                <a href="ml_engineering_reader.html" class="card">
                     <div class="card-icon">📖</div>
-                    <div class="card-title">Original OCR Reader</div>
-                    <div class="card-desc">520-page course with 415 sections</div>
-                    <span class="badge">Searchable</span>
+                    <h3 class="card-title">Full Interactive Reader</h3>
+                    <p class="card-description">Access the complete 520-page course with search and navigation.</p>
+                </a>
+                <a href="index_old.html" class="card">
+                    <div class="card-icon">🏛️</div>
+                    <h3 class="card-title">Old Study Hub</h3>
+                    <p class="card-description">The previous version of the study hub page.</p>
                 </a>
             </div>
-        </div>
+        </section>
 
-        <div id="content-viewer" class="content-viewer">
-            <button class="back-btn" onclick="closeContent()">← Back</button>
-            <div id="content"></div>
-        </div>
     </div>
 
-    <script>
-        marked.setOptions({ breaks: true, gfm: true });
-
-        async function loadContent(filename) {
-            const mainView = document.getElementById('main-view');
-            const contentViewer = document.getElementById('content-viewer');
-            const contentDiv = document.getElementById('content');
-            
-            contentDiv.innerHTML = '<p style="text-align:center;padding:60px;">Loading...</p>';
-            mainView.style.display = 'none';
-            contentViewer.classList.add('active');
-            
-            try {
-                const response = await fetch(filename);
-                const markdown = await response.text();
-                contentDiv.innerHTML = marked.parse(markdown);
-                window.scrollTo(0, 0);
-            } catch (error) {
-                contentDiv.innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
-            }
-        }
-
-        function closeContent() {
-            document.getElementById('main-view').style.display = 'block';
-            document.getElementById('content-viewer').classList.remove('active');
-            window.scrollTo(0, 0);
-        }
-    </script>
 </body>
 </html>

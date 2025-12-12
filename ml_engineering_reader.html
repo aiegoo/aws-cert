@@ -244,10 +244,25 @@
         let currentSectionIndex = 0;
         let filteredSections = [...sections];
         
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
         // Initialize
         function init() {
+            
+            const filterQuery = getQueryParam('filter');
+            if (filterQuery) {
+                const searchBox = document.getElementById('searchBox');
+                searchBox.value = filterQuery;
+                // Create and dispatch an input event
+                const event = new Event('input', { bubbles: true });
+                searchBox.dispatchEvent(event);
+            }
+
             renderSectionList();
-            if (sections.length > 0) {
+            if (filteredSections.length > 0) {
                 loadSection(0);
             }
             updateProgress();
