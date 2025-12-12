@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Storage & Lakehouse Flashcards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .controls {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+
+        .filter-group {
+            margin-bottom: 15px;
+        }
+
+        .filter-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            min-height: 400px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #667eea;
+            color: white;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin-bottom: 15px;
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin-left: 10px;
+        }
+
+        .difficulty-Easy { background: #48bb78; color: white; }
+        .difficulty-Medium { background: #ed8936; color: white; }
+        .difficulty-Hard { background: #f56565; color: white; }
+
+        .question {
+            font-size: 1.3em;
+            line-height: 1.6;
+            color: #2d3748;
+            margin-top: 20px;
+        }
+
+        .answer {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #2d3748;
+        }
+
+        .answer ul {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+
+        .answer li {
+            margin-bottom: 10px;
+        }
+
+        .answer strong {
+            color: #667eea;
+        }
+
+        .answer code {
+            background: #f7fafc;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #e53e3e;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            padding: 12px 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .nav-btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .nav-btn:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .flip-hint {
+            text-align: center;
+            margin-top: 20px;
+            color: #718096;
+            font-style: italic;
+        }
+
+        .doc-link {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .doc-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .doc-link a:hover {
+            text-decoration: underline;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .card {
+                padding: 25px;
+                min-height: 350px;
+            }
+
+            .question {
+                font-size: 1.1em;
+            }
+
+            .answer {
+                font-size: 1em;
+            }
+
+            .filter-buttons {
+                gap: 5px;
+            }
+
+            .filter-btn {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>☁️ AWS Storage & Lakehouse</h1>
+            <p>Master S3, Redshift Spectrum, Lake Formation & Data Lakes</p>
+        </div>
+
+        <div class="controls">
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="totalCards">0</div>
+                    <div class="stat-label">Total Cards</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="currentCard">0</div>
+                    <div class="stat-label">Current</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="progressPercent">0%</div>
+                    <div class="stat-label">Progress</div>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <div class="filter-group">
+                <label>📚 Category:</label>
+                <div class="filter-buttons" id="categoryFilters"></div>
+            </div>
+
+            <div class="filter-group">
+                <label>🎯 Difficulty:</label>
+                <div class="filter-buttons" id="difficultyFilters"></div>
+            </div>
+        </div>
+
+        <div class="card" id="flashcard" onclick="flipCard()">
+            <div class="card-front">
+                <div>
+                    <span class="category-badge" id="categoryBadge"></span>
+                    <span class="difficulty-badge" id="difficultyBadge"></span>
+                </div>
+                <div class="question" id="question"></div>
+                <div class="flip-hint">💡 Click to reveal answer</div>
+            </div>
+            <div class="card-back">
+                <div>
+                    <span class="category-badge" id="categoryBadgeBack"></span>
+                    <span class="difficulty-badge" id="difficultyBadgeBack"></span>
+                </div>
+                <div class="answer" id="answer"></div>
+                <div class="doc-link">
+                    <a href="#" id="docLink" target="_blank">📖 AWS Documentation →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn" onclick="previousCard()">← Previous</button>
+            <button class="nav-btn" onclick="flipCard()">🔄 Flip Card</button>
+            <button class="nav-btn" id="nextBtn" onclick="nextCard()">Next →</button>
+        </div>
+    </div>
+
+    <script src="storage_cards_data.js"></script>
+    <script>
+        let currentIndex = 0;
+        let filteredCards = [...cards];
+        let activeFilters = {
+            category: 'all',
+            difficulty: 'all'
+        };
+
+        function initializeFilters() {
+            // Get unique categories
+            const categories = ['all', ...new Set(cards.map(c => c.category))];
+            const categoryContainer = document.getElementById('categoryFilters');
+            
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn' + (cat === 'all' ? ' active' : '');
+                btn.textContent = cat === 'all' ? 'All' : cat;
+                btn.onclick = () => filterByCategory(cat);
+                categoryContainer.appendChild(btn);
+            });
+
+            // Difficulty filters
+            const difficulties = ['all', 'Easy', 'Medium', 'Hard'];
+            const diffContainer = document.getElementById('difficultyFilters');
+            
+            difficulties.forEach(diff => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn' + (diff === 'all' ? ' active' : '');
+                btn.textContent = diff === 'all' ? 'All' : diff;
+                btn.onclick = () => filterByDifficulty(diff);
+                diffContainer.appendChild(btn);
+            });
+        }
+
+        function filterByCategory(category) {
+            activeFilters.category = category;
+            applyFilters();
+            updateFilterButtons('categoryFilters', category);
+        }
+
+        function filterByDifficulty(difficulty) {
+            activeFilters.difficulty = difficulty;
+            applyFilters();
+            updateFilterButtons('difficultyFilters', difficulty);
+        }
+
+        function updateFilterButtons(containerId, activeValue) {
+            const container = document.getElementById(containerId);
+            const buttons = container.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                if (btn.textContent === activeValue || (activeValue === 'all' && btn.textContent === 'All')) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        function applyFilters() {
+            filteredCards = cards.filter(card => {
+                const categoryMatch = activeFilters.category === 'all' || card.category === activeFilters.category;
+                const difficultyMatch = activeFilters.difficulty === 'all' || card.difficulty === activeFilters.difficulty;
+                return categoryMatch && difficultyMatch;
+            });
+            
+            currentIndex = 0;
+            displayCard();
+        }
+
+        function displayCard() {
+            if (filteredCards.length === 0) {
+                document.getElementById('question').innerHTML = '<p>No cards match the selected filters.</p>';
+                document.getElementById('answer').innerHTML = '<p>Try adjusting your filters.</p>';
+                return;
+            }
+
+            const card = filteredCards[currentIndex];
+            
+            // Front
+            document.getElementById('categoryBadge').textContent = card.category;
+            document.getElementById('difficultyBadge').textContent = card.difficulty;
+            document.getElementById('difficultyBadge').className = `difficulty-badge difficulty-${card.difficulty}`;
+            document.getElementById('question').innerHTML = card.question;
+            
+            // Back
+            document.getElementById('categoryBadgeBack').textContent = card.category;
+            document.getElementById('difficultyBadgeBack').textContent = card.difficulty;
+            document.getElementById('difficultyBadgeBack').className = `difficulty-badge difficulty-${card.difficulty}`;
+            document.getElementById('answer').innerHTML = card.answer;
+            document.getElementById('docLink').href = card.link;
+            
+            // Update stats
+            document.getElementById('totalCards').textContent = filteredCards.length;
+            document.getElementById('currentCard').textContent = currentIndex + 1;
+            const progress = ((currentIndex + 1) / filteredCards.length * 100).toFixed(0);
+            document.getElementById('progressPercent').textContent = progress + '%';
+            document.getElementById('progressFill').style.width = progress + '%';
+            
+            // Update buttons
+            document.getElementById('prevBtn').disabled = currentIndex === 0;
+            document.getElementById('nextBtn').disabled = currentIndex === filteredCards.length - 1;
+            
+            // Reset flip
+            document.getElementById('flashcard').classList.remove('flipped');
+        }
+
+        function flipCard() {
+            document.getElementById('flashcard').classList.toggle('flipped');
+        }
+
+        function nextCard() {
+            if (currentIndex < filteredCards.length - 1) {
+                currentIndex++;
+                displayCard();
+            }
+        }
+
+        function previousCard() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                displayCard();
+            }
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextCard();
+            if (e.key === 'ArrowLeft') previousCard();
+            if (e.key === ' ') {
+                e.preventDefault();
+                flipCard();
+            }
+        });
+
+        // Initialize
+        initializeFilters();
+        displayCard();
+    </script>
+</body>
+</html>

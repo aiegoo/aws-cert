@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Storage & Lakehouse Practice Quiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .quiz-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .question-number {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #f5576c;
+        }
+
+        .topic-badge {
+            background: #f093fb;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+
+        .question-text {
+            font-size: 1.3em;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #2d3748;
+        }
+
+        .options {
+            list-style: none;
+        }
+
+        .option {
+            margin-bottom: 15px;
+        }
+
+        .option label {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .option label:hover {
+            border-color: #f093fb;
+            background: #faf5ff;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 15px;
+            margin-top: 3px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .option-text {
+            flex: 1;
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+
+        .option.correct label {
+            border-color: #48bb78;
+            background: #f0fff4;
+        }
+
+        .option.incorrect label {
+            border-color: #f56565;
+            background: #fff5f5;
+        }
+
+        .explanation {
+            margin-top: 20px;
+            padding: 20px;
+            background: #edf2f7;
+            border-left: 4px solid #f093fb;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .explanation.show {
+            display: block;
+        }
+
+        .explanation-title {
+            font-weight: bold;
+            color: #f5576c;
+            margin-bottom: 10px;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            padding: 12px 30px;
+            background: #f093fb;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .nav-btn:hover {
+            background: #f5576c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .nav-btn:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .submit-btn {
+            background: #48bb78;
+        }
+
+        .submit-btn:hover {
+            background: #38a169;
+        }
+
+        .progress-bar {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .progress-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #f5576c;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .progress-fill-container {
+            height: 10px;
+            background: #e2e8f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #f093fb, #f5576c);
+            transition: width 0.3s;
+        }
+
+        .results {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .results h2 {
+            font-size: 2.5em;
+            color: #2d3748;
+            margin-bottom: 20px;
+        }
+
+        .score {
+            font-size: 4em;
+            font-weight: bold;
+            color: #f5576c;
+            margin: 20px 0;
+        }
+
+        .score-label {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .restart-btn {
+            padding: 15px 40px;
+            background: #f093fb;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .restart-btn:hover {
+            background: #f5576c;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .quiz-card {
+                padding: 25px;
+            }
+
+            .question-text {
+                font-size: 1.1em;
+            }
+
+            .option-text {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Storage & Lakehouse Practice Quiz</h1>
+            <p>Test your knowledge of AWS Data Lake and Storage services</p>
+        </div>
+
+        <div class="progress-bar" id="progressBar">
+            <div class="progress-stats">
+                <div class="stat">
+                    <div class="stat-value" id="currentQ">1</div>
+                    <div class="stat-label">Question</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="totalQ">20</div>
+                    <div class="stat-label">Total</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="score">0</div>
+                    <div class="stat-label">Correct</div>
+                </div>
+            </div>
+            <div class="progress-fill-container">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <div id="quizContainer"></div>
+
+        <div class="navigation" id="navigation">
+            <button class="nav-btn" id="prevBtn" onclick="previousQuestion()">← Previous</button>
+            <button class="nav-btn submit-btn" id="submitBtn" onclick="submitAnswer()">Submit Answer</button>
+            <button class="nav-btn" id="nextBtn" onclick="nextQuestion()">Next →</button>
+        </div>
+
+        <div class="results" id="results" style="display: none;">
+            <h2>Quiz Complete! 🎉</h2>
+            <div class="score" id="finalScore">0/20</div>
+            <div class="score-label" id="percentage">0%</div>
+            <button class="restart-btn" onclick="restartQuiz()">Take Quiz Again</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                id: "lakehouse-q01",
+                question: "Your company stores raw clickstream data in S3. Analysts must query it without loading into Redshift. What is the most cost-effective solution?",
+                options: {
+                    A: "Copy data into Redshift using COPY",
+                    B: "Use Redshift Spectrum with external tables",
+                    C: "Use Redshift materialized views",
+                    D: "Use DynamoDB Streams with PartiQL"
+                },
+                correctAnswer: "B",
+                explanation: "Spectrum queries S3 in place, avoids ingestion, and charges only per TB scanned—ideal for cold clickstream datasets.",
+                topic: "Redshift Spectrum"
+            },
+            {
+                id: "lakehouse-q02",
+                question: "You need a single permission model for controlling column-level access to S3 data used by Athena and Redshift Spectrum. What should you choose?",
+                options: {
+                    A: "IAM",
+                    B: "S3 bucket policies",
+                    C: "Lake Formation",
+                    D: "Glue Crawlers"
+                },
+                correctAnswer: "C",
+                explanation: "Lake Formation centralizes fine-grained permissions via the Glue Data Catalog, covering Athena, Spectrum, and EMR.",
+                topic: "Lake Formation"
+            },
+            {
+                id: "lakehouse-q03",
+                question: "An ML team needs cheap long-term storage but fast SQL analytics. Which file format best meets both requirements?",
+                options: {
+                    A: "CSV",
+                    B: "JSON",
+                    C: "Parquet",
+                    D: "XML"
+                },
+                correctAnswer: "C",
+                explanation: "Parquet is columnar and compressed, reducing scan costs and boosting performance in Athena/Spectrum.",
+                topic: "Data Formats"
+            },
+            {
+                id: "lakehouse-q04",
+                question: "A data engineer wants metadata for S3 datasets shared across Athena, Redshift Spectrum, and EMR. Which service should they use?",
+                options: {
+                    A: "Glue Data Catalog",
+                    B: "DynamoDB",
+                    C: "CloudWatch Logs",
+                    D: "Only Lake Formation"
+                },
+                correctAnswer: "A",
+                explanation: "Glue Data Catalog is the central metadata store for S3 tables consumed by AWS analytics services.",
+                topic: "Glue Data Catalog"
+            },
+            {
+                id: "lakehouse-q05",
+                question: "You want Redshift Spectrum to read S3 data. What must you configure first?",
+                options: {
+                    A: "Install a Redshift extension",
+                    B: "Create a Glue Crawler",
+                    C: "Define an external schema referencing the Glue Data Catalog",
+                    D: "Create an EMR cluster"
+                },
+                correctAnswer: "C",
+                explanation: "Spectrum requires an external schema pointing to the Glue Data Catalog that describes the S3 tables.",
+                topic: "Redshift Spectrum"
+            },
+            {
+                id: "lakehouse-q06",
+                question: "A team needs to process petabytes in S3 at the lowest cost. Which storage strategy provides optimal performance?",
+                options: {
+                    A: "Small CSV files without partitions",
+                    B: "Large Parquet files with partitioned folders",
+                    C: "Many small JSON files",
+                    D: "A single massive XML file"
+                },
+                correctAnswer: "B",
+                explanation: "Partitioned Parquet files minimize data scanned and optimize distributed reads in Athena/Spectrum.",
+                topic: "Data Layout"
+            },
+            {
+                id: "lakehouse-q07",
+                question: "Lake Formation is required when you need:",
+                options: {
+                    A: "S3 object storage",
+                    B: "Centralized security for S3-backed tables",
+                    C: "A serverless SQL engine",
+                    D: "Redshift performance tuning"
+                },
+                correctAnswer: "B",
+                explanation: "LF provides centralized governance (table, column, row) for S3 datasets consumed by multiple services.",
+                topic: "Lake Formation"
+            },
+            {
+                id: "lakehouse-q08",
+                question: "A financial company needs auditable, fine-grained permissions for S3 datasets with column- and row-level limits. What should they use?",
+                options: {
+                    A: "IAM Roles",
+                    B: "S3 Access Points",
+                    C: "Lake Formation",
+                    D: "KMS Encryption"
+                },
+                correctAnswer: "C",
+                explanation: "Lake Formation enforces fine-grained permissions and integrates with CloudTrail for auditing.",
+                topic: "Lake Formation"
+            },
+            {
+                id: "lakehouse-q09",
+                question: "A Redshift cluster must join internal tables with external S3 data. Which feature allows this?",
+                options: {
+                    A: "Redshift materialized views",
+                    B: "Redshift Spectrum",
+                    C: "Redshift Serverless",
+                    D: "Redshift ML"
+                },
+                correctAnswer: "B",
+                explanation: "Spectrum external tables can be joined with native Redshift tables in a single query.",
+                topic: "Redshift Spectrum"
+            },
+            {
+                id: "lakehouse-q10",
+                question: "Which service automatically scans S3 data and updates schema metadata in the Glue Data Catalog?",
+                options: {
+                    A: "S3 Glacier",
+                    B: "Glue Crawlers",
+                    C: "EMR Spark",
+                    D: "Athena"
+                },
+                correctAnswer: "B",
+                explanation: "Glue Crawlers discover schema, partitions, and table definitions automatically.",
+                topic: "Glue"
+            },
+            {
+                id: "lakehouse-q11",
+                question: "A Lakehouse must support real-time dashboards using S3 data. Which service can query S3 directly with low latency when Redshift is already in place?",
+                options: {
+                    A: "Redshift Spectrum",
+                    B: "SageMaker notebooks",
+                    C: "Neptune",
+                    D: "DynamoDB Streams"
+                },
+                correctAnswer: "A",
+                explanation: "Spectrum extends Redshift SQL to S3, enabling low-latency dashboards without data duplication.",
+                topic: "Analytics"
+            },
+            {
+                id: "lakehouse-q12",
+                question: "Which statement is TRUE about Redshift Spectrum?",
+                options: {
+                    A: "It loads data permanently into Redshift",
+                    B: "It is a read-only SQL engine for S3",
+                    C: "It requires EMR to run",
+                    D: "It only supports CSV files"
+                },
+                correctAnswer: "B",
+                explanation: "Spectrum reads S3 data in place and is read-only; it doesn't write or ingest data.",
+                topic: "Redshift Spectrum"
+            },
+            {
+                id: "lakehouse-q13",
+                question: "What is the primary advantage of Parquet files for Lakehouse workloads?",
+                options: {
+                    A: "Easy manual editing",
+                    B: "Row-based format",
+                    C: "Columnar compression and selective reading",
+                    D: "Required by Spectrum"
+                },
+                correctAnswer: "C",
+                explanation: "Parquet is columnar, enabling compression and column pruning for cheaper, faster scans.",
+                topic: "Data Formats"
+            },
+            {
+                id: "lakehouse-q14",
+                question: "Your ETL job frequently updates small portions of a large S3 dataset. Which Lakehouse pattern addresses this?",
+                options: {
+                    A: "Row-oriented CSV files",
+                    B: "Append-only logs",
+                    C: "ACID table formats like Apache Iceberg",
+                    D: "EMR Hive metastore"
+                },
+                correctAnswer: "C",
+                explanation: "Iceberg/Delta/Hudi support ACID semantics for incremental updates on S3.",
+                topic: "Table Formats"
+            },
+            {
+                id: "lakehouse-q15",
+                question: "A data scientist wants cross-account access with audit logs on S3 analytics datasets. Which combo works best?",
+                options: {
+                    A: "CloudTrail only",
+                    B: "IAM only",
+                    C: "Lake Formation + Glue Catalog",
+                    D: "Athena workgroups"
+                },
+                correctAnswer: "C",
+                explanation: "Granting via Lake Formation on Glue tables enables cross-account sharing plus auditability.",
+                topic: "Security"
+            },
+            {
+                id: "lakehouse-q16",
+                question: "Analysts must query S3 but only see rows where region = 'APAC'. What feature enforces this?",
+                options: {
+                    A: "Redshift table constraints",
+                    B: "Glue Crawler filters",
+                    C: "Lake Formation row-level permissions",
+                    D: "S3 Access Logs"
+                },
+                correctAnswer: "C",
+                explanation: "LF row-level filters enforce predicates regardless of which service queries the table.",
+                topic: "Lake Formation"
+            },
+            {
+                id: "lakehouse-q17",
+                question: "In a Lakehouse, where are metadata tables referencing S3 data stored?",
+                options: {
+                    A: "Redshift memory",
+                    B: "DynamoDB tables you manage",
+                    C: "Glue Data Catalog",
+                    D: "CloudWatch metrics"
+                },
+                correctAnswer: "C",
+                explanation: "Glue Data Catalog is the managed metadata repository for S3 tables.",
+                topic: "Metadata"
+            },
+            {
+                id: "lakehouse-q18",
+                question: "Athena and Redshift Spectrum can both query the same external tables because they share:",
+                options: {
+                    A: "The same SQL engine",
+                    B: "The same S3 credentials",
+                    C: "The same Glue Data Catalog schemas",
+                    D: "The same IAM role"
+                },
+                correctAnswer: "C",
+                explanation: "Both services rely on the Glue Data Catalog for table/partition definitions.",
+                topic: "Metadata"
+            },
+            {
+                id: "lakehouse-q19",
+                question: "A Lake Formation admin must let analysts access curated data but not raw datasets. What should they grant?",
+                options: {
+                    A: "S3 bucket policy on the raw prefix",
+                    B: "\"Describe\" and \"Select\" on curated Glue tables only",
+                    C: "IAM S3FullAccess",
+                    D: "Access to every S3 prefix"
+                },
+                correctAnswer: "B",
+                explanation: "Granting Describe/Select on curated tables keeps raw tables invisible and inaccessible.",
+                topic: "Lake Formation"
+            },
+            {
+                id: "lakehouse-q20",
+                question: "How can an architect reduce Redshift storage costs for historical data while keeping it queryable?",
+                options: {
+                    A: "Keep all data in Redshift on RA3 nodes",
+                    B: "Delete historical data",
+                    C: "Offload cold data to S3 and query via Spectrum",
+                    D: "Move data to DynamoDB and query via PartiQL"
+                },
+                correctAnswer: "C",
+                explanation: "Storing history in S3 and querying with Spectrum keeps data accessible while shrinking cluster storage.",
+                topic: "Cost Optimization"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let userAnswers = new Array(questions.length).fill(null);
+        let score = 0;
+
+        function displayQuestion() {
+            const question = questions[currentQuestionIndex];
+            const container = document.getElementById('quizContainer');
+            
+            container.innerHTML = `
+                <div class="quiz-card">
+                    <div class="question-header">
+                        <span class="question-number">Question ${currentQuestionIndex + 1} of ${questions.length}</span>
+                        <span class="topic-badge">${question.topic}</span>
+                    </div>
+                    <div class="question-text">${question.question}</div>
+                    <ul class="options">
+                        ${Object.entries(question.options).map(([key, value]) => `
+                            <li class="option" id="option-${key}">
+                                <label>
+                                    <input type="radio" name="answer" value="${key}" 
+                                        ${userAnswers[currentQuestionIndex] === key ? 'checked' : ''}
+                                        onchange="selectAnswer('${key}')">
+                                    <span class="option-text"><strong>${key}.</strong> ${value}</span>
+                                </label>
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <div class="explanation" id="explanation">
+                        <div class="explanation-title">✓ Correct Answer: ${question.correctAnswer}</div>
+                        <div>${question.explanation}</div>
+                    </div>
+                </div>
+            `;
+
+            updateProgress();
+            updateButtons();
+            
+            if (userAnswers[currentQuestionIndex]) {
+                showResult();
+            }
+        }
+
+        function selectAnswer(answer) {
+            userAnswers[currentQuestionIndex] = answer;
+        }
+
+        function submitAnswer() {
+            if (!userAnswers[currentQuestionIndex]) {
+                alert('Please select an answer');
+                return;
+            }
+            showResult();
+        }
+
+        function showResult() {
+            const question = questions[currentQuestionIndex];
+            const userAnswer = userAnswers[currentQuestionIndex];
+            const correctAnswer = question.correctAnswer;
+            
+            document.getElementById(`option-${userAnswer}`).classList.add(
+                userAnswer === correctAnswer ? 'correct' : 'incorrect'
+            );
+            
+            if (userAnswer !== correctAnswer) {
+                document.getElementById(`option-${correctAnswer}`).classList.add('correct');
+            }
+            
+            document.getElementById('explanation').classList.add('show');
+            document.getElementById('submitBtn').style.display = 'none';
+            
+            calculateScore();
+        }
+
+        function calculateScore() {
+            score = 0;
+            userAnswers.forEach((answer, index) => {
+                if (answer === questions[index].correctAnswer) {
+                    score++;
+                }
+            });
+            document.getElementById('score').textContent = score;
+        }
+
+        function updateProgress() {
+            document.getElementById('currentQ').textContent = currentQuestionIndex + 1;
+            document.getElementById('totalQ').textContent = questions.length;
+            const progress = ((currentQuestionIndex + 1) / questions.length * 100);
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function updateButtons() {
+            document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
+            document.getElementById('nextBtn').disabled = currentQuestionIndex === questions.length - 1;
+            
+            if (userAnswers[currentQuestionIndex]) {
+                document.getElementById('submitBtn').style.display = 'none';
+            } else {
+                document.getElementById('submitBtn').style.display = 'inline-block';
+            }
+            
+            if (currentQuestionIndex === questions.length - 1 && userAnswers[currentQuestionIndex]) {
+                document.getElementById('nextBtn').textContent = 'See Results';
+                document.getElementById('nextBtn').disabled = false;
+                document.getElementById('nextBtn').onclick = showResults;
+            } else {
+                document.getElementById('nextBtn').textContent = 'Next →';
+                document.getElementById('nextBtn').onclick = nextQuestion;
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                displayQuestion();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                displayQuestion();
+            }
+        }
+
+        function showResults() {
+            calculateScore();
+            const percentage = ((score / questions.length) * 100).toFixed(0);
+            
+            document.getElementById('quizContainer').style.display = 'none';
+            document.getElementById('navigation').style.display = 'none';
+            document.getElementById('progressBar').style.display = 'none';
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('finalScore').textContent = `${score}/${questions.length}`;
+            document.getElementById('percentage').textContent = `${percentage}% Correct`;
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            userAnswers = new Array(questions.length).fill(null);
+            score = 0;
+            
+            document.getElementById('quizContainer').style.display = 'block';
+            document.getElementById('navigation').style.display = 'flex';
+            document.getElementById('progressBar').style.display = 'block';
+            document.getElementById('results').style.display = 'none';
+            
+            displayQuestion();
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' && currentQuestionIndex < questions.length - 1) {
+                nextQuestion();
+            }
+            if (e.key === 'ArrowLeft' && currentQuestionIndex > 0) {
+                previousQuestion();
+            }
+        });
+
+        // Initialize
+        displayQuestion();
+    </script>
+</body>
+</html>
