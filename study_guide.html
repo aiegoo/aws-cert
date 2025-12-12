@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS ML Engineering - Complete Study Guide</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 40px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            font-style: italic;
+        }
+        
+        nav {
+            background: #34495e;
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 25px;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #3498db;
+        }
+        
+        .content {
+            padding: 60px 60px;
+            font-size: 1.1rem;
+        }
+        
+        .content h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin: 50px 0 25px 0;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            font-weight: 300;
+        }
+        
+        .content h2 {
+            color: #34495e;
+            font-size: 2rem;
+            margin: 40px 0 20px 0;
+            font-weight: 400;
+        }
+        
+        .content h3 {
+            color: #555;
+            font-size: 1.5rem;
+            margin: 30px 0 15px 0;
+        }
+        
+        .content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 25px;
+            margin: 30px 0;
+            color: #555;
+            font-style: italic;
+            background: #f8f9fa;
+            padding: 20px 25px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .content code {
+            background: #f4f4f4;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        
+        .content pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 25px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 25px 0;
+            line-height: 1.6;
+        }
+        
+        .content pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        
+        .content ul, .content ol {
+            margin: 20px 0 20px 40px;
+        }
+        
+        .content li {
+            margin-bottom: 12px;
+        }
+        
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .content th, .content td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        .content th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .content tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .content strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .content em {
+            color: #555;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 100px 40px;
+            color: #667eea;
+            font-size: 1.3rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: background 0.3s;
+        }
+        
+        .back-link:hover {
+            background: #764ba2;
+        }
+        
+        footer {
+            background: #34495e;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 25px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AWS Machine Learning Engineering</h1>
+            <p>A Complete Journey to MLA-C01 Certification</p>
+        </header>
+
+        <nav>
+            <a href="index.html">← Back to Hub</a>
+            <a href="#introduction">Introduction</a>
+            <a href="#module1">Module 1</a>
+            <a href="#module2">Module 2</a>
+        </nav>
+
+        <div class="content">
+            <div class="loading">Loading your study guide...</div>
+        </div>
+
+        <footer>
+            <p>AWS Machine Learning Engineer - Associate (MLA-C01)</p>
+            <p style="opacity: 0.7; margin-top: 10px;">Study materials reconstructed from AWS curriculum</p>
+        </footer>
+    </div>
+
+    <script>
+        marked.setOptions({
+            breaks: true,
+            gfm: true,
+            headerIds: true
+        });
+
+        async function loadGuide() {
+            const contentDiv = document.querySelector('.content');
+            
+            try {
+                const response = await fetch('study_guide_readable.md');
+                const markdown = await response.text();
+                const html = marked.parse(markdown);
+                contentDiv.innerHTML = `
+                    <a href="index.html" class="back-link">← Back to Study Hub</a>
+                    ${html}
+                `;
+            } catch (error) {
+                contentDiv.innerHTML = `
+                    <div class="loading" style="color: #e74c3c;">
+                        <p>Error loading study guide</p>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">${error.message}</p>
+                        <p style="margin-top: 20px;"><a href="index.html">Return to Hub</a></p>
+                    </div>
+                `;
+            }
+        }
+
+        loadGuide();
+    </script>
+</body>
+</html>
