@@ -1,0 +1,140 @@
+ML Engineering on AWS - OCR Content
+Total Pages: 520
+====================================================================================================
+
+
+====================================================================================================
+PAGE 1 (Chunk 1)
+====================================================================================================
+
+Printed by: ssleeeeel@gmailcom Printingis for personal, private use only. No part ofthis book may be reproduced ortransmitted without publisher's prior permission Violators will be prosecuted.
+aWS training and rarifiawaf Machine Learning Engineering on AWS (KO) Student Guide 버전 1.0.3 틈 9 200-MLMLEA-1O-KO-SG SSleeeee_
+Printed by: ssleeeeei@grail.cor. Printingis for personal, private use only. No part ofthis book may be reproduced ortransmitted without publisher's prior permission Violators will be prosecuted.
+
+
+====================================================================================================
+PAGE 2 (Chunk 1)
+====================================================================================================
+
+2025, Amazon Web Services Inc Orits affiliates AlIl rights reserved
+본 내용은 Amazon Web Services, Inc 의 사전 서면 허가 없이 전체 또는 일부들 복제하거나 재배포합 수 없습니다. 상업적인 복제, 임대 또는 판매는 금지되니다.
+본 과정에 대한 수정 사랑이나 피드백 문의사항이 있으면 hitps llsupporL aws amazon comncontactslaws Iraining 올 응해 연락해 주십시오
+모든 상표는 해당 소유자의 자산일니다. 0 NOT Com 틈 8 SSleeeee1@
+Printed by: ssleeeeei@grail.cor. Printingis for personal, private use only. No part ofthis book may be reproduced ortransmitted without publisher's prior permission. Violators will be prosecuted.
+
+
+====================================================================================================
+PAGE 3 (Chunk 1)
+====================================================================================================
+
+AWS Trarrung and Certflicauon
+Macherlg Leatming Engineering On AWS (KO)
+목차
+모든 0 과정 소개
+모든 1; AWS의I 기계 학습(ML) 소개
+18
+모델 2: ML 관련 당면 과제 문석
+51
+모든 3 ML8 데이터 처리
+88
+모돌 4: 데이터 변e 및 특성 엔지니어팅
+132
+모든 5: 모델림 방식 선택
+195
+모퉁 6; ML 모데 훈련
+243
+모든 7; ML 모델 평가 및 투딩
+279
+모든 8: 모델 배포 전락
+322
+모든 9; AWS ML 리스스 보호
+3 모둘 10: 기계 화습 은영(MLOps) 및 자동화된 <> Com 374 모들 11: 모델 성승 맛 데이터 품 질 모니터림 449 403 모트 12 과정요약 틈 507 9 SSleeeee1@
+02025 Nrzon Web Sorvices Inc o ds alfllals Nrlghits fueorved
+Printed by: ssleeeeei@grail.cor. Printingis for personal, private use only. No part ofthis book may be reproduced ortransmitted without publisher's prior permission Violators will be prosecuted.
+
+
+====================================================================================================
+PAGE 4 (Chunk 1)
+====================================================================================================
+
+AWS Training and Certficaton
+모든 0 과정 소개
+aws
+Machine Learning Engineering on AWS (한국어) 부제 입력
+시 NOT Com 틈 8 SSleeeee1@
+9 2025,Anazon Wcb Seryices Inc 데ts affilates NInrghts roserved
+Printed by: ssleeeeei@grail.cor. Printingis for personal, private use only. No part ofthis book may be reproduced ortransmitted without publisher's prior permission Violators will be prosecuted.
+
+
+====================================================================================================
+PAGE 5 (Chunk 1)
+====================================================================================================
+
+AWS Training and Certficaton
+모든 0 과정 소개
+aws
+모둘 0: 과정 소개 Machine Learning Engineering on AWS
+스 NOT Com 틈 8 SSleeeee1@
+9 2025,Anazon Wcb Seryices Inc 데ts affilates NInrghts roserved
+Printed by: ssleeeeei@grail.cor. Printingis for personal, private use only. No part ofthis book may be reproduced ortransmitted without publisher's prior permission Violators will be prosecuted.
+
+
+====================================================================================================
+PAGE 6 (Chunk 1)
+====================================================================================================
+
+AWS Training and Certficaton
+모든 0 과정 소개
+aws
+과정 개요 및 소개
+9 2025,Anazon Wcb Seryices Inc 데ts affilates NInrghts roserved
+Printed by: ssleeeeei@grail.cor. Printingis for personal, private use only. No part ofthis book may be reproduced ortransmitted without publisher's prior permission Violators will be prosecuted.
+C NOT Com 틈 8 SSleeeee1@
+
+
+====================================================================================================
+PAGE 7 (Chunk 1)
+====================================================================================================
+
+AWS Training and Certficaton
+모든 0 과정 소개
+과정 목표
+이 과정올 마치면 다음올 수형활 수 핑게 I니다 기개 이 ;MU) 기본 시합 및 AWS 싣라 우 드어서 ML 애플리베이선 은 AWS 서비스로 사용히여 ML 대스크용 데이터들 처리 및 변환히고 설명합니다; 현치니어없합니다 , 뒷 모델딩 접근 밤식름 선디합니다 문히 요구 사감과 모든 여석 가능성은 토대로 석브반 ML 일고리급 '화장 가능안 ML 미이프라인은 설거 옛 구현합니다 모임 브랜 내로 잇 오서스트레이선블 위인 AWS 시비스: 사용히여 파이프라언블 성심합니다. M 위크므로용으로 자동하다 지숙식 통합 및 지숙적 신달(CCDI AWS의 ML 리소스 보로볕 위해 석합런 보안 조시트 설렁합니다 모니터입 선q물 더이디 드리프트 금질기등록 도많이여 버포린 M 모 덜더 디만 속 Com NOT 틈 8 SSleeeee1@
+9 2025,Anazon Wcb Seryices Inc 데ts affilates NInrghts roserved
+Printed by: ssleeeeei@grail.cor. Printingis for personal, private use only. No part ofthis book may be reproduced ortransmitted without publisher's prior permission Violators will be prosecuted.
+
+
+====================================================================================================
+PAGE 8 (Chunk 1)
+====================================================================================================
+
+AWS Training and Certficaton
+모든 0 과정 소개
+일정 1일 #
+모든 2 ML 도전 과제 분석 * 참듭 모든 1: AWS의 기계 학습(서니 모든 4 데이터 변반 및 피처 엔지니어림 모든 3 ML올 위안 데이터 처리 훌동 - 실습 고입사 모든 6 ML 모델 련 모든 5: 모델림 방식 신드 + 합톱 모든 7 ML 모델 평기 및 뉴딩 * 실심 실습 모든 8 오델 버포 전리 실습 모든 10-ML 운영(MLOps) 및 자동회된 네모 + 15 + 모는 9 AWS ML 리소스 보호 XXX 모든 11: 모델 성능 및 데이터 품질 모니터림 - 실습 Com NOT 틈 8 SSleeeee1@
+9 2025,Anazon Wcb Seryices Inc 데ts affilates NInrghts roserved
+Printed by: ssleeeeei@grail.cor. Printingis for personal, private use only. No part ofthis book may be reproduced ortransmitted without publisher's prior permission Violators will be prosecuted.
+
+
+====================================================================================================
+PAGE 9 (Chunk 1)
+====================================================================================================
+
+AWS Training and Certficaton
+모든 0 과정 소개
+과정 안내 사항 휴식 및 점심시간 보안 휴대전화 가상 강의실 기능 오디오 채팅 진문하기
+8 강사와 함께 가상 강의실 소프트웨어 기능올 검토하십시오 담당 강사에계 이러한 기능올 강사는 휴식 시간 및 점심시간 일정올 설명합니다 가상으로 교육에 참여하는 경우 담당 사용하여 강의에 참여하는 방법에 대한 설명올 들올 수 있습니다 NO 쇼 COmI 틈 8 SSleeeee1@
+9 2025,Anazon Wcb Seryices Inc 데ts affilates NInrghts roserved
+Printed by: ssleeeeei@grail.cor. Printingis for personal, private use only. No part ofthis book may be reproduced ortransmitted without publisher's prior permission Violators will be prosecuted.
+
+
+====================================================================================================
+PAGE 10 (Chunk 1)
+====================================================================================================
+
+AWS Training and Certficaton
+모든 0 과정 소개
+과정 사전 조건 기본적인 ML 관련 개념 및 알고리즘 유형에 친숙함 인반 데이터 과학 라이브리리 및 Python 프로그래망 언어에 대한 실무 지식 콜라우드 컴퓨팅 개 념에 대한 기본적인 이해 AWS 플라우드어 친숙합 유용하지만 , 필수 조건 아님: SQL 및 관계형 데이터베이스어 친숙함 3 Git 등의 버전 제어 시스템 사용 경험 이 과정은 AWS에서 기계 학습 모델올 구축, 배포 및 운영하는 방법올 알아보러는 전문가용입니다. 이는 현직 그리고 AWS 스택올 사용한 경험이 거의 없는 훈련 중인 ML 엔지니어도 해당월 수 있습니다. 이 교육의 혜택올 받을 수 있는 다른 역할로는 DevOps 엔지니어, 개발자 시스템 운영(SysOps) 엔지니어 등이 있습니다. 0 사전 조건 이 과정의 참석자는 아래률 갖추는 것이 중습니다: 지도 및 비지도 학습 회귀 분류 흘러스터팅 알고리좀 등의 기본적인 ML 관련 개념에 친숙합 NumPY Pandas Scikit-Learn 등 일반 데이터 과학 라이브러리 및 Python 프로그래망 언어 관련 실무 지식 기본적인 플라우드 컴퓨팅 이해 및 AWS 플라우드에 친 권장하지만 필수 조건 아님 우ex SQL 및 관계형 데이터베이스에 익숙할 것올 추천하지만 필수 아님 Git 등의 버전 제어 시스템 사용 경험이 있음 유리하지만 필수 아님 SSr(
+9 2025,Anazon Wcb Seryices Inc 데ts affilates NInrghts roserved
+Printed by: ssleeeeei@grail.cor. Printingis for personal, private use only. No part ofthis book may be reproduced ortransmitted without publisher's prior permission Violators will be prosecuted.
+
