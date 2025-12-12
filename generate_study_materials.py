@@ -85,6 +85,9 @@ class StudyMaterialGenerator:
     def generate_interactive_reader(self, sections: List[Dict]):
         """Generate HTML interactive reader with navigation"""
         
+        # Encode sections data to base64 to avoid escaping issues
+        sections_b64 = self.json_to_base64(sections)
+        
         html_content = '''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -326,7 +329,7 @@ class StudyMaterialGenerator:
     
     <script>
         // Section data  
-        const sections = JSON.parse(atob('''' + self.json_to_base64(sections) + ''''));
+        const sections = JSON.parse(atob('{sections_b64}'));
         
         let currentSectionIndex = 0;
         let filteredSections = [...sections];
@@ -446,6 +449,12 @@ class StudyMaterialGenerator:
     </script>
 </body>
 </html>'''
+        
+        # Insert the base64-encoded sections data
+        html_content = html_content.replace(
+            "const sections = JSON.parse(atob('{sections_b64}'));",
+            f"const sections = JSON.parse(atob('{sections_b64}'));"
+        )
         
         output_file = self.output_dir / 'ml_engineering_reader.html'
         with open(output_file, 'w', encoding='utf-8') as f:
