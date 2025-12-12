@@ -24,6 +24,19 @@ class StudyMaterialGenerator:
         with open(json_path, 'r', encoding='utf-8') as f:
             return json.load(f)
     
+    def escape_js_string(self, s: str) -> str:
+        """Escape string for JavaScript"""
+        # Replace backslashes first
+        s = s.replace('\\', '\\\\')
+        # Then other special characters
+        s = s.replace('"', '\\"')
+        s = s.replace("'", "\\'")
+        s = s.replace('\n', '\\n')
+        s = s.replace('\r', '\\r')
+        s = s.replace('\t', '\\t')
+        s = s.replace('</', '<\\/')
+        return s
+    
     def extract_sections(self) -> List[Dict]:
         """Extract pages from OCR content - each page is a section"""
         sections = []
@@ -62,6 +75,12 @@ class StudyMaterialGenerator:
                 })
         
         return sections
+    
+    def json_to_base64(self, data) -> str:
+        """Convert JSON data to base64 to avoid escaping issues"""
+        import base64
+        json_str = json.dumps(data, ensure_ascii=False)
+        return base64.b64encode(json_str.encode('utf-8')).decode('ascii')
     
     def generate_interactive_reader(self, sections: List[Dict]):
         """Generate HTML interactive reader with navigation"""
@@ -306,8 +325,8 @@ class StudyMaterialGenerator:
     </div>
     
     <script>
-        // Section data
-        const sections = ''' + json.dumps(sections, ensure_ascii=False, indent=8) + ''';
+        // Section data  
+        const sections = JSON.parse(atob('''' + self.json_to_base64(sections) + ''''));
         
         let currentSectionIndex = 0;
         let filteredSections = [...sections];
