@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS MLA-C01 Flashcards - Monitoring & Observability (Sample)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { text-align: center; color: white; margin-bottom: 30px; font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .domain-tag { display: inline-block; background: #fff; color: #667eea; padding: 5px 15px; border-radius: 20px; margin-bottom: 20px; font-weight: bold; font-size: 0.9rem; }
+        .card { background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin-bottom: 20px; cursor: pointer; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card-inner { position: relative; width: 100%; min-height: 250px; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
+        .card.flipped .card-inner { transform: rotateY(180deg); }
+        .card-front, .card-back { position: absolute; width: 100%; min-height: 250px; backface-visibility: hidden; display: flex; align-items: center; justify-content: center; padding: 30px; border-radius: 15px; }
+        .card-front { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .card-back { background: white; color: #333; transform: rotateY(180deg); border: 3px solid #667eea; }
+        .card-content { font-size: 1.2rem; line-height: 1.6; }
+        .answer { font-size: 1.1rem; line-height: 1.8; }
+        .source { margin-top: 15px; font-size: 0.85rem; color: #666; font-style: italic; }
+        .stats { text-align: center; color: white; margin-top: 30px; font-size: 1.1rem; }
+        .nav-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+        .nav-buttons button { background: white; color: #667eea; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; font-weight: bold; transition: all 0.3s; }
+        .nav-buttons button:hover { background: #667eea; color: white; transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 AWS MLA-C01 Flashcards - Sample Batch</h1>
+        <div class="stats">Domain: Monitoring & Observability | 10 Cards</div>
+        
+        <!-- Card 1: CloudWatch Dashboards -->
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="domain-tag">Domain 4: Monitoring</div>
+                        <h2>What AWS service allows you to create interactive visualizations by querying logs from CloudWatch Logs Insights or Athena?</h2>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="answer">
+                        <strong>Amazon QuickSight</strong><br><br>
+                        QuickSight allows you to create interactive visualizations for more customizable or business-oriented dashboards. It can query logs from CloudWatch Logs Insights or Athena, useful when navigating metrics across multiple models, environments, or time periods.
+                        <div class="source">Source: Chapter 31.3.2 - Page ~490</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Grafana Integration -->
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="domain-tag">Domain 4: Monitoring</div>
+                        <h2>What tool can be used for more advanced ML observability use cases, combining model performance metrics with infrastructure health?</h2>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="answer">
+                        <strong>Grafana</strong><br><br>
+                        Grafana can be used for more advanced ML observability use cases. It integrates natively with CloudWatch and supports dashboards with alerts based on thresholds or time-series anomalies.
+                        <div class="source">Source: Chapter 31.3.2 - Page ~490</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: SageMaker Model Monitor -->
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="domain-tag">Domain 4: Monitoring</div>
+                        <h2>Which AWS tool automatically logs drift metrics that can be visualized using CloudWatch or exported to QuickSight?</h2>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="answer">
+                        <strong>SageMaker Model Monitor</strong><br><br>
+                        SageMaker Model Monitor automatically logs drift metrics including data drift, model drift, and bias drift. These can be visualized using CloudWatch or exported to QuickSight for latency and performance analysis.
+                        <div class="source">Source: Chapter 31.3.3 - Page ~491</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4: Data Drift -->
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="domain-tag">Domain 4: Monitoring</div>
+                        <h2>What type of drift is detected when input data distributions evolved compared to baseline distributions?</h2>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="answer">
+                        <strong>Data Drift</strong><br><br>
+                        Data drift can be visualized through histograms or line charts that compare current distributions to baseline distributions. Tools like SageMaker Model Monitor automatically track these metrics.
+                        <div class="source">Source: Chapter 31.3.3 - Page ~491</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 5: Explainability -->
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="domain-tag">Domain 3: ML Implementation</div>
+                        <h2>What is increasingly essential in ML systems for regulated industries like healthcare, finance, and insurance?</h2>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="answer">
+                        <strong>Explainability</strong><br><br>
+                        Explainability is essential for ensuring models can expose feature attribution and decision rationales. Tools like SageMaker Clarify compute SHAP values for predictions, enabling both global and local interpretability.
+                        <div class="source">Source: Chapter 31.2.2 - Page ~489</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6: SHAP Values -->
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="domain-tag">Domain 3: ML Implementation</div>
+                        <h2>What technique does SageMaker Clarify use to compute feature attribution for predictions?</h2>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="answer">
+                        <strong>SHAP (SHapley Additive exPlanations) values</strong><br><br>
+                        SageMaker Clarify computes SHAP values for predictions, enabling both global (overall feature importance) and local (individual prediction) interpretability.
+                        <div class="source">Source: Chapter 31.2.2 - Page ~489</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 7: Logging in ML Lifecycle -->
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="domain-tag">Domain 4: Monitoring</div>
+                        <h2>According to AWS best practices, when should logging be incorporated in the ML lifecycle?</h2>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="answer">
+                        <strong>Early stages - from data ingestion and preprocessing</strong><br><br>
+                        Logging should not be an afterthought but rather integrated from the early stages of the ML pipeline. It should capture schema versions, data lineage, and any data cleaning actions applied during preprocessing and training stages.
+                        <div class="source">Source: Chapter 31.2.3 - Page ~489</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 8: SageMaker Experiments -->
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="domain-tag">Domain 3: ML Implementation</div>
+                        <h2>What AWS service can be used to track metadata programmatically during model training, tying together dataset versions, model artifacts, and training jobs?</h2>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="answer">
+                        <strong>SageMaker Experiments</strong><br><br>
+                        SageMaker Experiments can track this metadata programmatically. It logs model configurations, hyperparameters, evaluation scores, and validation metrics. This facilitates reproducibility and helps trace downstream errors back to their origin.
+                        <div class="source">Source: Chapter 31.2.3 - Page ~489</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 9: Alerts and Dashboards -->
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="domain-tag">Domain 4: Monitoring</div>
+                        <h2>What is essential for tracking both technical and business-level performance indicators in ML systems?</h2>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="answer">
+                        <strong>Designing actionable visualization and alerting (Alerts and Dashboards)</strong><br><br>
+                        Monitoring is incomplete without actionable visualization and alerting. Designing dashboards and alerts ensures issues like data drift, model performance degradation, or resource bottlenecks are caught early and resolved efficiently.
+                        <div class="source">Source: Chapter 31.3 - Page ~490</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 10: AWS Well-Architected ML Lens -->
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="domain-tag">Domain 4: Monitoring</div>
+                        <h2>What principle does the AWS Well-Architected ML Lens emphasize for ML system reliability?</h2>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="answer">
+                        <strong>A tenet around building resilience and redundancy into model deployment</strong><br><br>
+                        The AWS Well-Architected ML Lens encourages teams to proactively define key metrics at each stage of the pipeline and use automated alerting and visual dashboards to maintain observability. This ensures ML systems remain reliable and maintainable.
+                        <div class="source">Source: Chapter 31.3.1 - Page ~490</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <button onclick="window.location.href='index.html'">← Back to Collections</button>
+            <button onclick="flipAll()">Flip All Cards</button>
+            <button onclick="resetAll()">Reset All</button>
+        </div>
+    </div>
+
+    <script>
+        function flipAll() {
+            document.querySelectorAll('.card').forEach(card => card.classList.add('flipped'));
+        }
+        function resetAll() {
+            document.querySelectorAll('.card').forEach(card => card.classList.remove('flipped'));
+        }
+    </script>
+</body>
+</html>
