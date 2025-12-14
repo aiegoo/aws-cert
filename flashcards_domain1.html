@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS MLA-C01 Flashcards - Domain 1: Data Preparation for ML</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 { text-align: center; color: white; margin-bottom: 20px; font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .domain-header { background: white; border-radius: 10px; padding: 15px; margin-bottom: 20px; text-align: center; }
+        .domain-tag { display: inline-block; background: #667eea; color: white; padding: 8px 20px; border-radius: 20px; font-weight: bold; }
+        .card { background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin-bottom: 20px; cursor: pointer; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card-inner { position: relative; width: 100%; min-height: 200px; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
+        .card.flipped .card-inner { transform: rotateY(180deg); }
+        .card-front, .card-back { position: absolute; width: 100%; min-height: 200px; backface-visibility: hidden; display: flex; align-items: center; justify-content: center; padding: 30px; border-radius: 15px; }
+        .card-front { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .card-back { background: white; color: #333; transform: rotateY(180deg); border: 3px solid #667eea; }
+        .card-content { font-size: 1.3rem; font-weight: bold; }
+        .answer { font-size: 1.1rem; line-height: 1.8; }
+        .nav-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+        .nav-buttons button { background: white; color: #667eea; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; font-weight: bold; transition: all 0.3s; font-size: 1rem; }
+        .nav-buttons button:hover { background: #667eea; color: white; transform: scale(1.05); }
+        .stats { text-align: center; color: white; margin: 20px 0; font-size: 1.1rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 AWS MLA-C01 Flashcards</h1>
+        <div class="domain-header">
+            <div class="domain-tag">Domain 1: Data Preparation for ML</div>
+            <p style="margin-top: 10px; color: #666;">Click any card to flip</p>
+        </div>
+        <div class="stats">12 Key Concepts</div>
+
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">What AWS service automatically loads streaming data into S3, Redshift, or Elasticsearch?</div>
+                </div>
+                <div class="card-back">
+                    <div class="answer"><strong>Amazon Kinesis Data Firehose</strong><br><br>Firehose is a fully managed service that buffers and batches data before delivery. It handles transformations via Lambda and requires minimal operational overhead.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">What AWS data warehouse service provides petabyte-scale analytics?</div>
+                </div>
+                <div class="card-back">
+                    <div class="answer"><strong>Amazon Redshift</strong><br><br>Redshift is a columnar MPP database optimized for OLAP. It supports Spectrum for querying S3 data and Concurrency Scaling for burst workloads.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">What AWS service provides object storage with virtually unlimited scalability for data lakes?</div>
+                </div>
+                <div class="card-back">
+                    <div class="answer"><strong>Amazon S3</strong><br><br>S3 is the foundation for data lakes, offering 11 9's of durability, lifecycle policies, versioning, and cost-effective storage classes (Standard, IA, Glacier). It supports batch and streaming ingestion.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">What hybrid architecture combines data lake flexibility with data warehouse performance?</div>
+                </div>
+                <div class="card-back">
+                    <div class="answer"><strong>Lakehouse</strong><br><br>Lakehouses use Delta Lake or Iceberg for ACID transactions on S3. They enable analytics and ML on the same platform with unified governance via Lake Formation.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">What three dimensions characterize big data challenges?</div>
+                </div>
+                <div class="card-back">
+                    <div class="answer"><strong>Three Vs: Volume, Velocity, Variety</strong><br><br>Volume = data scale (GB to PB), Velocity = speed (batch vs streaming), Variety = data types (structured, semi-structured, unstructured).</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">What AWS service captures and processes real-time streaming data with sub-second latency?</div>
+                </div>
+                <div class="card-back">
+                    <div class="answer"><strong>Amazon Kinesis Data Streams</strong><br><br>Kinesis Data Streams provides real-time processing with custom applications. It retains data for 24 hours to 7 days, supports multiple consumers, and requires manual shard management.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">What architecture stores raw data in its native format using schema-on-read?</div>
+                </div>
+                <div class="card-back">
+                    <div class="answer"><strong>Data Lake</strong><br><br>Data lakes use S3 for storage, support unstructured/semi-structured data, and defer schema definition until query time. They enable exploratory analytics and ML workloads.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">What AWS service provides serverless ETL and data cataloging for data lakes?</div>
+                </div>
+                <div class="card-back">
+                    <div class="answer"><strong>AWS Glue</strong><br><br>Glue offers a data catalog, crawlers for schema discovery, and ETL jobs using Spark. It integrates with S3, Redshift, and RDS for unified metadata management.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">What architecture optimizes structured data for BI and analytics using schema-on-write?</div>
+                </div>
+                <div class="card-back">
+                    <div class="answer"><strong>Data Warehouse</strong><br><br>Data warehouses like Redshift require upfront ETL, use columnar storage, and optimize for complex SQL queries. They provide a single source of truth for reporting.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">What process extracts, transforms, and loads data before storage?</div>
+                </div>
+                <div class="card-back">
+                    <div class="answer"><strong>ETL Pipeline</strong><br><br>ETL pipelines transform data before loading into warehouses. AWS Glue provides serverless ETL with Python/Scala scripts and visual designers.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">What approach defines data structure before ingestion?</div>
+                </div>
+                <div class="card-back">
+                    <div class="answer"><strong>Schema-on-Write</strong><br><br>Used by data warehouses, schema-on-write enforces structure during ingestion. This ensures data quality but reduces flexibility for exploratory analysis.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">What approach defers data structure definition until query time?</div>
+                </div>
+                <div class="card-back">
+                    <div class="answer"><strong>Schema-on-Read</strong><br><br>Used by data lakes, schema-on-read stores raw data and applies structure during analysis. This enables flexibility but requires schema inference tools like Glue.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <button onclick="window.location.href='index.html'">← Back to Index</button>
+            <button onclick="flipAll()">Flip All Cards</button>
+            <button onclick="resetAll()">Reset All</button>
+        </div>
+    </div>
+
+    <script>
+        function flipAll() {
+            document.querySelectorAll('.card').forEach(card => card.classList.add('flipped'));
+        }
+        function resetAll() {
+            document.querySelectorAll('.card').forEach(card => card.classList.remove('flipped'));
+        }
+    </script>
+</body>
+</html>
