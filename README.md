@@ -8,10 +8,10 @@ This repository contains comprehensive resources and materials for AWS certifica
 
 **🔗 Latest Deployed Content (from master branch):**
 
-**📖 ML Engineering Study Guides (Markdown):**
-- **Part 1 - Modules 0-6:** [https://aiegoo.github.io/aws-cert/ml_engineering_english_content](https://aiegoo.github.io/aws-cert/ml_engineering_english_content)
-- **Part 2 - Modules 7-9:** [https://aiegoo.github.io/aws-cert/ml_engineering_english_part2](https://aiegoo.github.io/aws-cert/ml_engineering_english_part2)
-- **Part 3 - Modules 10-12:** [https://aiegoo.github.io/aws-cert/ml_engineering_english_part3](https://aiegoo.github.io/aws-cert/ml_engineering_english_part3)
+**📖 ML Engineering Study Guides:**
+- **Part 1 - Modules 0-6:** [https://aiegoo.github.io/aws-cert/ml_engineering_english_content.html](https://aiegoo.github.io/aws-cert/ml_engineering_english_content.html)
+- **Part 2 - Modules 7-9:** [https://aiegoo.github.io/aws-cert/ml_engineering_english_part2.html](https://aiegoo.github.io/aws-cert/ml_engineering_english_part2.html)
+- **Part 3 - Modules 10-12:** [https://aiegoo.github.io/aws-cert/ml_engineering_english_part3.html](https://aiegoo.github.io/aws-cert/ml_engineering_english_part3.html)
 
 **🎯 Interactive Flashcards & Quizzes:**
 - **Kindle Flashcards:** [https://aiegoo.github.io/aws-cert/kindle_sample.html](https://aiegoo.github.io/aws-cert/kindle_sample.html)
