@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS SageMaker Deployment Options - Study Flashcards</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { text-align: center; color: white; margin-bottom: 30px; font-size: 2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .domain-tag { display: inline-block; background: #fff; color: #667eea; padding: 5px 15px; border-radius: 20px; margin-bottom: 20px; font-weight: bold; font-size: 0.9rem; }
+        .card { background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin-bottom: 20px; cursor: pointer; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card-inner { position: relative; width: 100%; min-height: 250px; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
+        .card.flipped .card-inner { transform: rotateY(180deg); }
+        .card-front, .card-back { position: absolute; width: 100%; min-height: 250px; backface-visibility: hidden; display: flex; align-items: center; justify-content: center; padding: 30px; border-radius: 15px; }
+        .card-front { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .card-back { background: white; color: #333; transform: rotateY(180deg); border: 3px solid #667eea; }
+        .card-content { font-size: 1.2rem; line-height: 1.6; }
+        .answer { font-size: 1.1rem; line-height: 1.8; }
+        .source { margin-top: 15px; font-size: 0.85rem; color: #666; font-style: italic; }
+        .stats { text-align: center; color: white; margin-top: 30px; font-size: 1.1rem; }
+        .nav-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+        .nav-buttons button { background: white; color: #667eea; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; font-weight: bold; transition: all 0.3s; }
+        .nav-buttons button:hover { background: #667eea; color: white; transform: scale(1.05); }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.9rem; }
+        th, td { padding: 8px; text-align: left; border: 1px solid #ddd; }
+        th { background-color: #f0f0f0; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 SageMaker Deployment Options - Study Flashcards</h1>
+        <div class="stats">Domain: Model Deployment & Cost Optimization | 8 Cards</div>
+        
+        <!-- Card 1: Serverless Inference Overview -->
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="domain-tag">Domain 3: Deployment</div>
+                        <h2>What is the best SageMaker deployment option for unpredictable traffic that scales to zero when idle?</h2>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="answer">
+                        <strong>SageMaker Serverless Inference</strong><br><br>
+                        Serverless Inference is designed for intermittent or unpredictable traffic. It automatically scales down to zero when idle, eliminating the cost of unused, provisioned instances. You only pay for compute time used during inference requests.
+                        <div class="source">Key for cost optimization with variable traffic patterns</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Serverless Inference Limits -->
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="domain-tag">Domain 3: Deployment</div>
+                        <h2>What are the key limits for SageMaker Serverless Inference?</h2>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="answer">
+                        <strong>Payload: 4 MB | Timeout: 60 seconds</strong><br><br>
+                        SageMaker Serverless Inference supports:<br>
+                        • Maximum payload size: 4 MB<br>
+                        • Request timeout: 60 seconds<br>
+                        • Synchronous API-based real-time inference<br><br>
+                        These limits are perfect for models that process requests quickly (under 1 minute) with moderate data sizes.
+                        <div class="source">Critical for exam: Know these limits precisely</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Real-Time Endpoints -->
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="domain-tag">Domain 3: Deployment</div>
+                        <h2>When should you use SageMaker Real-Time Endpoints instead of Serverless Inference?</h2>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="answer">
+                        <strong>For consistent, predictable traffic with low-latency requirements (milliseconds)</strong><br><br>
+                        Real-Time Endpoints are best for:<br>
+                        • Predictable, steady traffic patterns<br>
+                        • Very low latency needs (milliseconds)<br>
+                        • When instances can be kept warm<br><br>
+                        <strong>Drawback:</strong> High idle cost - instances remain provisioned even with zero traffic, making them expensive for unpredictable workloads.
+                        <div class="source">Common exam trap: Don't choose for unpredictable traffic</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4: Batch Transform -->
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="domain-tag">Domain 3: Deployment</div>
+                        <h2>What is SageMaker Batch Transform designed for and why isn't it suitable for real-time applications?</h2>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="answer">
+                        <strong>Bulk, offline processing - not for real-time synchronous requests</strong><br><br>
+                        Batch Transform is designed for:<br>
+                        • Processing large datasets offline<br>
+                        • Batch predictions (hours/days)<br>
+                        • Cost-effective for bulk processing<br><br>
+                        <strong>Not suitable for:</strong> Real-time applications where clients wait for immediate responses. It processes data in batches asynchronously.
+                        <div class="source">Exam tip: Eliminate for "real-time" requirements</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 5: Asynchronous Inference -->
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="domain-tag">Domain 3: Deployment</div>
+                        <h2>What's the key difference between SageMaker Serverless Inference and Asynchronous Inference?</h2>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="answer">
+                        <strong>Synchronous vs. Asynchronous response pattern</strong><br><br>
+                        <strong>Serverless Inference:</strong><br>
+                        • Synchronous (client waits for response)<br>
+                        • Up to 60-second timeout<br>
+                        • Connection stays open<br><br>
+                        <strong>Asynchronous Inference:</strong><br>
+                        • Asynchronous (client gets 202 Accepted immediately)<br>
+                        • Up to 1-hour processing time<br>
+                        • Client polls S3/SNS/SQS for results later<br>
+                        • Both scale to zero for cost savings
+                        <div class="source">Critical distinction for exam scenarios</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6: Cost-Effective Deployment Decision -->
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="domain-tag">Domain 3: Deployment</div>
+                        <h2>For a CPU-based model with unpredictable traffic during work hours and 1-minute processing time, what's the most cost-effective deployment?</h2>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="answer">
+                        <strong>SageMaker Serverless Inference</strong><br><br>
+                        <strong>Analysis:</strong><br>
+                        • Traffic Pattern: Unpredictable → Needs scale-to-zero<br>
+                        • Processing Time: <1 minute → Within 60s limit<br>
+                        • Sync/Async: Real-time response needed → Synchronous<br>
+                        • Cost: Pay only for processing time → Most economical<br><br>
+                        <strong>Why not others:</strong><br>
+                        × Real-Time Endpoints: High idle cost<br>
+                        × Batch Transform: Not real-time<br>
+                        × Async Inference: Client doesn't wait synchronously
+                        <div class="source">Classic exam scenario - prioritize cost + traffic pattern</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 7: Multi-Model Endpoints -->
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="domain-tag">Domain 3: Deployment</div>
+                        <h2>What are SageMaker Multi-Model Endpoints and their cost characteristics?</h2>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="answer">
+                        <strong>Host multiple models on same endpoint - but still requires provisioned instances</strong><br><br>
+                        Multi-Model Endpoints allow:<br>
+                        • Multiple models on a single endpoint<br>
+                        • Cost sharing across models<br>
+                        • Dynamic model loading<br><br>
+                        <strong>Cost Issue:</strong> Like Real-Time Endpoints, instances must remain provisioned even during idle periods. Not suitable for unpredictable/zero traffic scenarios where scale-to-zero is needed.
+                        <div class="source">Exam trap: Don't confuse cost-sharing with scale-to-zero</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 8: Deployment Decision Matrix -->
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="domain-tag">Domain 3: Deployment</div>
+                        <h2>What are the key decision factors when choosing a SageMaker deployment option?</h2>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="answer">
+                        <strong>Traffic Pattern, Latency, Processing Time, and Cost</strong><br><br>
+                        <table>
+                            <tr><th>Factor</th><th>Best Option</th></tr>
+                            <tr><td>Unpredictable/Zero Traffic</td><td>Serverless or Async</td></tr>
+                            <tr><td>Steady, Predictable Traffic</td><td>Real-Time Endpoints</td></tr>
+                            <tr><td>Millisecond Latency</td><td>Real-Time Endpoints</td></tr>
+                            <tr><td>Up to 60s Processing</td><td>Serverless Inference</td></tr>
+                            <tr><td>Up to 1hr Processing</td><td>Async Inference</td></tr>
+                            <tr><td>Bulk/Batch Processing</td><td>Batch Transform</td></tr>
+                            <tr><td>Most Cost-Effective</td><td>Scale-to-Zero Options</td></tr>
+                        </table>
+                        <div class="source">Exam strategy: Prioritize traffic pattern and cost requirements first</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <button onclick="window.location.href='index.html'">← Back to Study Hub</button>
+            <button onclick="flipAll()">Flip All Cards</button>
+            <button onclick="resetAll()">Reset All</button>
+        </div>
+    </div>
+
+    <script>
+        function flipAll() {
+            document.querySelectorAll('.card').forEach(card => card.classList.add('flipped'));
+        }
+        function resetAll() {
+            document.querySelectorAll('.card').forEach(card => card.classList.remove('flipped'));
+        }
+    </script>
+</body>
+</html>

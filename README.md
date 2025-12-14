@@ -4,6 +4,34 @@ This repository contains comprehensive resources and materials for AWS certifica
 
 **Current Status**: ✅ CLF-C02 Certified | 🎯 Studying for MLA-C01
 
+## 🚀 Live Flashcards & Study Materials
+
+**🔗 Latest Deployed Content (from master branch):**
+
+**📖 ML Engineering Study Guides:**
+- **Part 1 - Modules 0-6:** [https://aiegoo.github.io/aws-cert/ml_engineering_english_content.html](https://aiegoo.github.io/aws-cert/ml_engineering_english_content.html)
+- **Part 2 - Modules 7-9:** [https://aiegoo.github.io/aws-cert/ml_engineering_english_part2.html](https://aiegoo.github.io/aws-cert/ml_engineering_english_part2.html)
+- **Part 3 - Modules 10-12:** [https://aiegoo.github.io/aws-cert/ml_engineering_english_part3.html](https://aiegoo.github.io/aws-cert/ml_engineering_english_part3.html)
+
+**🎯 Interactive Flashcards & Quizzes:**
+- **Kindle Flashcards:** [https://aiegoo.github.io/aws-cert/kindle_sample.html](https://aiegoo.github.io/aws-cert/kindle_sample.html)
+- **MLA-C01 Flashcards:** [https://aiegoo.github.io/aws-cert/mla_study_cards.html](https://aiegoo.github.io/aws-cert/mla_study_cards.html)
+- **SageMaker Deployment:** [https://aiegoo.github.io/aws-cert/sagemaker_deployment_cards.html](https://aiegoo.github.io/aws-cert/sagemaker_deployment_cards.html)
+- **DevOps Flashcards:** [https://aiegoo.github.io/aws-cert/study_cards.html](https://aiegoo.github.io/aws-cert/study_cards.html)
+- **Main Study Hub:** [https://aiegoo.github.io/aws-cert/](https://aiegoo.github.io/aws-cert/)
+
+**📌 Deployment Info:** Content is automatically deployed to GitHub Pages when changes are pushed/merged to the `master` branch. After merging this PR, the latest changes will be live at the URLs above within a few minutes.
+
+**Available resources:**
+- 📖 **ML Engineering Study Guides** - Complete 520-page course in 3 parts (Modules 0-12)
+- 📱 **Kindle Sample Flashcards** - Monitoring & Observability flashcards (sample batch)
+- 🎯 **MLA-C01 Flashcards** - 65 comprehensive flashcards covering all exam domains
+- 🚀 **SageMaker Deployment Flashcards** - 8 cards on deployment options and cost optimization
+- 💾 **Storage & Lakehouse Flashcards** - S3, Redshift, and Lake Formation study cards
+- ⚡ **DevOps Flashcards** - AWS DevOps concepts and practices
+- 📖 **Interactive Reader** - Full 520-page course with search and navigation
+- ✅ **Quizzes** - Timed practice quizzes on various topics
+
 ## Repository Structure
 
 ```
