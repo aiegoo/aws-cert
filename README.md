@@ -4,6 +4,17 @@ This repository contains comprehensive resources and materials for AWS certifica
 
 **Current Status**: ✅ CLF-C02 Certified | 🎯 Studying for MLA-C01
 
+## 🚀 Live Flashcards & Study Materials
+
+**Access the interactive study materials here:** [https://aiegoo.github.io/aws-cert/](https://aiegoo.github.io/aws-cert/)
+
+The site is automatically deployed to GitHub Pages whenever changes are pushed to the master branch. It includes:
+- 🎯 **MLA-C01 Flashcards** - 65 comprehensive flashcards covering all exam domains
+- 💾 **Storage & Lakehouse Flashcards** - S3, Redshift, and Lake Formation study cards
+- ⚡ **DevOps Flashcards** - AWS DevOps concepts and practices
+- 📖 **Interactive Reader** - Full 520-page course with search and navigation
+- ✅ **Quizzes** - Timed practice quizzes on various topics
+
 ## Repository Structure
 
 ```
