@@ -1,0 +1,14 @@
+Found 19 screenshots
+Crop margins: left=300, top=0, right=0, bottom=100
+Deduplicating...
+
+
+Found 2 unique pages (removed 17 duplicates)
+
+Cropping unique pages...
+
+Cropping 1/2: page_001_20251214_060618.png
+Cropping 2/2: page_014_20251214_060652.png
+
+Complete! Saved 2 unique pages
+Output: /mnt/c/Users/hsyyu/Documents/kindle_clean

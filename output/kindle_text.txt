@@ -1,0 +1,504 @@
+
+============================================================
+
+PAGE 1
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractor py main Administrator: Windows PowerShell ome laiegoo repos aws-certlcapture_kindle_Windows ps1" ~MaxPages 560 WaitTime Kindle Book Screenshot Capture
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+Instructions- This script Will open Chrome with the Kindle book URL Log in to your Amazon account if needed Navigate to the first page you Want to capture Press ENTER in this PowerShell Window to start capture The script Will automatically: Take screenshot Press RIGHT arrow key to go to next page Repeat until 560 pages are captured
+15
+Tilcc
+IELtE_
+Delete the cL
+Screenshots will be saved to: C: lUsersIhsyyulDocumentsIkindle_screenshots
+~Opening Chrome
+CertOL
+(Please navigate to the first page you want to capture in Chrome_ then press ENTER to start automated capture 1
+1 Starting capture in 3 seconds _ Finding Chrome Window With Kindle book _ Found Chrome Window: Kindle Google Chrome Capturing page 560 TERNTrue True
+51" ~Mz
+(e_ base re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 2
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractorpy main Administrator: Windows PowerShell Instructions: This script Will open Chrome with the Kindle book URL Log in to your Amazon account if needed Navigate to the first page you Want to capture Press ENTER in this PowerShell Window to start capture The script Will automatically: Take screenshot Press RIGHT arrow key to go to next page Repeat until 560 pages are captured
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+15
+Tilcc
+IELtE_
+Screenshots will be saved to: C: lUsersIhsyyulDocumentsIkindle_screenshots
+Delete the cL
+Opening Chrome_
+Please navigate to the first page you Want to capture in Chrome_ then press ENTER to start automated capture
+CertOL
+IStarting capture in 3 seconds Finding Chrome Window With Kindle book _ 1 Found Chrome window: Kindle Google Chrome Capturing page 560 1 True True Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_001_20251212_224909.png Capturing page 560 TERNTrue True
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 3
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractor py main Administrator: Windows PowerShell Press ENTER in this PowerShell Window to start capture The script Will automatically: Take screenshot Press RIGHT arrow key to go to next page Repeat until 560 pages are captured
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+15
+Screenshots will be saved to: C: |Userslhsyyu DocumentsIkindle_screenshots
+Tilcc
+IELtE_
+Opening Chrome_
+Please navigate to the first page you Want to capture in Chrome_ then press ENTER to start automated capture
+Delete the cL
+IStarting capture in 3 seconds (Finding Chrome Window With Kindle book _ Found Chrome window: Kindle Google Chrome Capturing page 560 ITrue True 1 Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_001_20251212_224909.png Capturing page 560 1 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_002_20251212_224912.png Capturing page 560 TERNTrue True
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 4
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractorpy main Administrator: Windows PowerShell Repeat until 560 pages are captured
+CHAT
+OCR APPL
+Screenshots will be saved to: C: lUsersIhsyyulDocumentsIkindle_screenshots
+1. Find the 2. Maximiz 3. Then ca
+Opening Chrome_
+15
+Please navigate to the first page you want to capture in Chrome_ then press ENTER to start automated capture
+Tilcc
+IELtE_
+Delete the cL
+Starting capture in 3 seconds Finding Chrome Window With Kindle book _ Found Chrome window: Kindle Google Chrome Capturing page 560 True (True Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_001_20251212_224909.png Capturing page 560 ITrue True 1 Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_002_20251212_224912.png Capturing page 560 1 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_003_20251212_224915.png Capturing page 560 TERNTrue True
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 5
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractorpy main Administrator: Windows PowerShell Opening Chrome_ APlease navigate to the first page you want to capture in Chrome_ then press ENTER to start automated capture
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+15
+Tilcc
+IStarting capture in 3 seconds Finding Chrome Window With Kindle book _ Found Chrome window: Kindle Google Chrome Capturing page 560 True True Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_001_20251212_224909.png Capturing page 560 True (True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_002_20251212_224912.png Capturing page 560 ITrue True 1 Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_003_20251212_224915.png Capturing page 560 1 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_004_20251212_224918.png Capturing page 560 TERNTrue True
+IELtE_
+Delete the cL
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 6
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy Administrator: Windows PowerShell
+page_capture_extractorpy 0 X
+CHAT
+main
+OCR APPL
+IStarting capture in 3 seconds _ ~Finding Chrome Window With Kindle book_ Found Chrome window: Kindle Google Chrome Capturing page 560 True True Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_001_20251212_224909.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_002_20251212_224912.png Capturing page 560 True (True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_003_20251212_224915.png Capturing page 560 ITrue True 1 Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_004_20251212_224918.png Capturing page 560 1 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_005_20251212_224921.png Capturing page 560 TERNTrue True
+1. Find the 2. Maximiz 3. Then ca
+15
+Tilcc
+IELtE_
+Delete the cL
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 7
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractor py main Administrator: Windows PowerShell "Finding Chrome Window With Kindle book_ Found Chrome window: Kindle Google Chrome Capturing page 560 True True Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_001_20251212_224909.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_002_20251212_224912.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_003_20251212_224915.png Capturing page 560 True (True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_004_20251212_224918.png Capturing page 560 ITrue True 1 Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_005_20251212_224921.png Capturing page 560 1 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_006_20251212_224924.png Capturing page 560 TERNTrue True
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+15
+Tilcc
+IELtE_
+Delete the cL
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 8
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractorpy main Administrator: Windows PowerShell ITrue Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_001_20251212_224909.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_002_20251212_224912.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_003_20251212_224915.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_004_20251212_224918.png Capturing page 560 True (True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_005_20251212_224921.png Capturing page 560 ITrue True 1 Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_006_20251212_224924.png Capturing page 560 1 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_007_20251212_224927 .png Capturing page 560 TERNTrue True
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+15
+Tilcc
+IELtE_
+Delete the cL
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 9
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractorpy main Administrator: Windows PowerShell ITrue Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_002_20251212_224912.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_003_20251212_224915.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_004_20251212_224918.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_005_20251212_224921.png Capturing page 560 True (True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_006_20251212_224924.png Capturing page 560 ITrue True 1 Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_007_20251212_224927 .png Capturing page 560 1 True True Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_008_20251212_224930.png Capturing page 560 TERNTrue True
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+15
+Tilcc
+IELtE_
+Delete the cL
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 10
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractorpy main Administrator: Windows PowerShell ITrue Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_003_20251212_224915.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_004_20251212_224918.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_005_20251212_224921.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_006_20251212_224924.png Capturing page 560 True (True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_007_20251212_224927 .png Capturing page 560 ITrue True 1 Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_008_20251212_224930.png Capturing page 560 1 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_009_20251212_224933.png Capturing page 10 560 TERNTrue True
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+15
+Tilcc
+IELtE_
+Delete the cL
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 11
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractorpy main Administrator: Windows PowerShell ITrue Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_004_20251212_224918.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_005_20251212_224921.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_006_20251212_224924.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_007_20251212_224927 .png Capturing page 560 True (True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_008_20251212_224930.png Capturing page 560 ITrue True 1 Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_009_20251212_224933.png Capturing page 10 560 1 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_010_20251212_224936.png Capturing page 11 560 TERNTrue True
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+15
+Tilcc
+IELtE_
+Delete the cL
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 12
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractorpy main Administrator: Windows PowerShell ITrue Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_005_20251212_224921.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_006_20251212_224924.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_007_20251212_224927 .png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_008_20251212_224930.png Capturing page 560 True (True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_009_20251212_224933.png Capturing page 10 560 ITrue True 1 Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_010_20251212_224936.png Capturing page 11 560 1 True True Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_011_20251212_224939.png Capturing page 12 560 TERNTrue True
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+15
+Tilcc
+IELTE7
+Delete the cL
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 13
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractorpy main Administrator: Windows PowerShell ITrue Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_006_20251212_224924.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_007_20251212_224927 .png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_008_20251212_224930.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_009_20251212_224933.png Capturing page 10 560 True (True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_010_20251212_224936.png Capturing page 11 560 ITrue True 1 Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_011_20251212_224939.png Capturing page 12 560 1 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_012_20251212_224942.png Capturing page 13 560 TERNTrue True
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+15
+Tilcc
+IELTE7
+Delete the cL
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 14
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractorpy main Administrator: Windows PowerShell ITrue Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_007_20251212_224927. png Capturing page 560 True True Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_008_20251212_224930.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_009_20251212_224933.png Capturing page 10 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_010_20251212_224936.png Capturing page 11 560 True (True Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_011_20251212_224939.png Capturing page 12 560 ITrue True 1 Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_012_20251212_224942.png Capturing page 13 560 1 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_013_20251212_224944.png Capturing page 14 560 TERNTrue True
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+15
+Tilcc
+IELTE7
+Delete the cL
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 15
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractorpy main Administrator: Windows PowerShell ITrue Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_008_20251212_224930.png Capturing page 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_009_20251212_224933.png Capturing page 10 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_010_20251212_224936.png Capturing page 11 560 True True Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_011_20251212_224939.png Capturing page 12 560 True (True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_012_20251212_224942.png Capturing page 13 560 ITrue True 1 Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_013_20251212_224944.png Capturing page 14 560 1 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_014_20251212_224947 .png Capturing page 15 560 TERNTrue True
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+15
+Tilcc
+IELTE7
+Delete the cL
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 16
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractorpy main Administrator: Windows PowerShell ITrue Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_009_20251212_224933.png Capturing page 10 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_010_20251212_224936.png Capturing page 11 560 True True Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_011_20251212_224939.png Capturing page 12 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_012_20251212_224942.png Capturing page 13 560 True (True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_013_20251212_224944.png Capturing page 14 560 ITrue True 1 Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_014_20251212_224947 .png Capturing page 15 560 1 True True Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_015_20251212_224950.png Capturing page 16 560 TERNTrue True
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+15
+Tilcc
+IELTE7
+Delete the cL
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 17
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractorpy main Administrator: Windows PowerShell ITrue Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_010_20251212_224936.png Capturing page 11 560 True True Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_011_20251212_224939.png Capturing page 12 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_012_20251212_224942.png Capturing page 13 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_013_20251212_224944.png Capturing page 14 560 True (True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_014_20251212_224947 .png Capturing page 15 560 ITrue True 1 Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_015_20251212_224950.png Capturing page 16 560 1 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_016_20251212_224953.png Capturing page 17 560 TERNTrue True
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+15
+Tilcc
+IELTE7
+Delete the cL
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 18
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractorpy main Administrator: Windows PowerShell ITrue Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_011_20251212_224939.png Capturing page 12 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_012_20251212_224942.png Capturing page 13 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_013_20251212_224944.png Capturing page 14 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_014_20251212_224947 .png Capturing page 15 560 True (True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_015_20251212_224950.png Capturing page 16 560 ITrue True 1 Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_016_20251212_224953.png Capturing page 17 560 1 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_017_20251212_224956.png Capturing page 18 560 TERNTrue True
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+15
+Tilcc
+IELTE7
+Delete the cL
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 19
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractorpy main Administrator: Windows PowerShell ITrue Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_012_20251212_224942.png Capturing page 13 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_013_20251212_224944.png Capturing page 14 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_014_20251212_224947 .png Capturing page 15 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_015_20251212_224950.png Capturing page 16 560 True (True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_016_20251212_224953.png Capturing page 17 560 ITrue True 1 Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_017_20251212_224956.png Capturing page 18 560 1 True True Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_018_20251212_224959.png Capturing page 19 560 TERNTrue True
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+15
+Tilcc
+IELTE7
+Delete the cL
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 20
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractorpy main Administrator: Windows PowerShell ITrue Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_013_20251212_224944.png Capturing page 14 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_014_20251212_224947 .png Capturing page 15 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_015_20251212_224950.png Capturing page 16 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_016_20251212_224953.png Capturing page 17 560 True (True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_017_20251212_224956.png Capturing page 18 560 ITrue True 1 Saved: C: |Users|hsyyu|DocumentsIkindle_screenshotsIpage_018_20251212_224959.png Capturing page 19 560 1 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_019_20251212_225002.png Capturing page 20 560 TERNTrue True
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+15
+Tilcc
+IELTE7
+Delete the cL
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 21
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractorpy main Administrator: Windows PowerShell ITrue Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_014_20251212_224947 .png Capturing page 15 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_015_20251212_224950.png Capturing page 16 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_016_20251212_224953.png Capturing page 17 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_017_20251212_224956.png Capturing page 18 560 True (True Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_018_20251212_224959.png Capturing page 19 560 ITrue True 1 Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_019_20251212_225002.png Capturing page 20 560 1 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_020_20251212_225005.png Capturing page 21 560 TERNTrue True
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+15
+Tilcc
+IELTE7
+Delete the cL
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
+
+
+============================================================
+
+PAGE 22
+
+============================================================
+
+
+generate_flashcardspy page_capture_extractorpy 0 X page_capture_extractorpy main Administrator: Windows PowerShell ITrue Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_015_20251212_224950.png Capturing page 16 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_016_20251212_224953.png Capturing page 17 560 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_017_20251212_224956.png Capturing page 18 560 True True Saved: C: |Users |hsyyu|DocumentsIkindle_screenshots Ipage_018_20251212_224959.png Capturing page 19 560 True (True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_019_20251212_225002.png Capturing page 20 560 ITrue True 1 Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_020_20251212_225005.png Capturing page 21 560 1 True True Saved: C: |Userslhsyyu|DocumentsIkindle_screenshotsIpage_021_20251212_225008.png Capturing page 22 560 TERNTrue True
+CHAT
+OCR APPL
+1. Find the 2. Maximiz 3. Then ca
+15
+Tilcc
+IELTE7
+Delete the cL
+CertOL
+51" ~Mz
+(e) base N re aws-cert ls Imnt/c/Users/hsyyu/Documents/kind le_screenshots/ tail -5 page_496_20251212_223557. png nara u97 20251919 293600 nna
+This will capt
+
