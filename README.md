@@ -16,6 +16,7 @@ This repository contains comprehensive resources and materials for AWS certifica
 **🎯 Interactive Flashcards & Quizzes:**
 - **Kindle Flashcards:** [https://aiegoo.github.io/aws-cert/kindle_sample.html](https://aiegoo.github.io/aws-cert/kindle_sample.html)
 - **MLA-C01 Flashcards:** [https://aiegoo.github.io/aws-cert/mla_study_cards.html](https://aiegoo.github.io/aws-cert/mla_study_cards.html)
+- **SageMaker Deployment:** [https://aiegoo.github.io/aws-cert/sagemaker_deployment_cards.html](https://aiegoo.github.io/aws-cert/sagemaker_deployment_cards.html)
 - **DevOps Flashcards:** [https://aiegoo.github.io/aws-cert/study_cards.html](https://aiegoo.github.io/aws-cert/study_cards.html)
 - **Main Study Hub:** [https://aiegoo.github.io/aws-cert/](https://aiegoo.github.io/aws-cert/)
 
@@ -25,6 +26,7 @@ This repository contains comprehensive resources and materials for AWS certifica
 - 📖 **ML Engineering Study Guides** - Complete 520-page course in 3 parts (Modules 0-12)
 - 📱 **Kindle Sample Flashcards** - Monitoring & Observability flashcards (sample batch)
 - 🎯 **MLA-C01 Flashcards** - 65 comprehensive flashcards covering all exam domains
+- 🚀 **SageMaker Deployment Flashcards** - 8 cards on deployment options and cost optimization
 - 💾 **Storage & Lakehouse Flashcards** - S3, Redshift, and Lake Formation study cards
 - ⚡ **DevOps Flashcards** - AWS DevOps concepts and practices
 - 📖 **Interactive Reader** - Full 520-page course with search and navigation
