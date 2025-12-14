@@ -6,11 +6,14 @@ This repository contains comprehensive resources and materials for AWS certifica
 
 ## 🚀 Live Flashcards & Study Materials
 
-**Access the deployed flashcards directly:** [https://aiegoo.github.io/aws-cert/kindle_sample.html](https://aiegoo.github.io/aws-cert/kindle_sample.html)
+**🔗 Latest Deployed Content (from master branch):**
 
-**Main Study Hub:** [https://aiegoo.github.io/aws-cert/](https://aiegoo.github.io/aws-cert/)
+- **Kindle Flashcards:** [https://aiegoo.github.io/aws-cert/kindle_sample.html](https://aiegoo.github.io/aws-cert/kindle_sample.html)
+- **Main Study Hub:** [https://aiegoo.github.io/aws-cert/](https://aiegoo.github.io/aws-cert/)
 
-The site is automatically deployed to GitHub Pages whenever changes are pushed to the master branch. Available resources:
+**📌 Deployment Info:** Content is automatically deployed to GitHub Pages when changes are pushed/merged to the `master` branch. After merging this PR, the latest changes will be live at the URLs above within a few minutes.
+
+**Available resources:**
 - 📱 **Kindle Sample Flashcards** - Monitoring & Observability flashcards (sample batch)
 - 🎯 **MLA-C01 Flashcards** - 65 comprehensive flashcards covering all exam domains
 - 💾 **Storage & Lakehouse Flashcards** - S3, Redshift, and Lake Formation study cards
