@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS MLA-C01 Kindle Study Materials</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amazon+Ember:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --aws-navy: #232f3e;
+            --aws-orange: #ff9900;
+            --aws-squid-ink: #232f3e;
+            --aws-sea-blue: #0073bb;
+            --aws-light-grey: #eaeded;
+            --aws-dark-grey: #414d5c;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Amazon Ember', sans-serif;
+            background-color: var(--aws-light-grey);
+            color: var(--aws-squid-ink);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--aws-navy);
+            margin: 0;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: var(--aws-dark-grey);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--aws-navy);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--aws-orange);
+        }
+
+        .domain-grid, .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .domain-card .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .domain-card .percentage {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--aws-orange);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--aws-sea-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-description {
+            font-size: 0.95rem;
+            color: var(--aws-dark-grey);
+            flex-grow: 1;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .status-ready {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .status-wip {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <h1>AWS MLA-C01 Kindle Study Materials</h1>
+            <p>Flashcards & Practice Questions from Official Study Guide</p>
+        </header>
+
+        <section id="flashcards">
+            <h2 class="section-title">Flashcards by Domain</h2>
+            <div class="domain-grid">
+                
+                <a href="flashcards_domain1.html" class="card domain-card">
+                    <div class="card-header">
+                        <div class="card-icon">📊</div>
+                        <div class="percentage">28%</div>
+                    </div>
+                    <h3 class="card-title">Domain 1: Data Preparation</h3>
+                    <p class="card-description">S3, Kinesis, Glue, Data Lakes, ETL pipelines, schema strategies</p>
+                    <span class="status-badge status-ready">✓ Ready</span>
+                </a>
+                
+                <a href="flashcards_domain2.html" class="card domain-card">
+                    <div class="card-header">
+                        <div class="card-icon">🧠</div>
+                        <div class="percentage">26%</div>
+                    </div>
+                    <h3 class="card-title">Domain 2: Model Development</h3>
+                    <p class="card-description">SageMaker, training jobs, hyperparameter tuning, model evaluation</p>
+                    <span class="status-badge status-wip">⏳ Coming Soon</span>
+                </a>
+                
+                <a href="flashcards_domain3.html" class="card domain-card">
+                    <div class="card-header">
+                        <div class="card-icon">🚀</div>
+                        <div class="percentage">22%</div>
+                    </div>
+                    <h3 class="card-title">Domain 3: Deployment & Orchestration</h3>
+                    <p class="card-description">Endpoints, batch transform, pipelines, Step Functions</p>
+                    <span class="status-badge status-wip">⏳ Coming Soon</span>
+                </a>
+                
+                <a href="flashcards_domain4.html" class="card domain-card">
+                    <div class="card-header">
+                        <div class="card-icon">🛡️</div>
+                        <div class="percentage">24%</div>
+                    </div>
+                    <h3 class="card-title">Domain 4: Monitoring & Security</h3>
+                    <p class="card-description">CloudWatch, Model Monitor, IAM, data drift, governance</p>
+                    <span class="status-badge status-wip">⏳ Coming Soon</span>
+                </a>
+
+            </div>
+        </section>
+
+        <section id="practice-questions" style="margin-top: 3rem;">
+            <h2 class="section-title">Practice Questions</h2>
+            <div class="resource-grid">
+
+                <a href="questions_domain1.html" class="card">
+                    <div class="card-icon">✅</div>
+                    <h3 class="card-title">Domain 1 Quiz</h3>
+                    <p class="card-description">19 practice questions on data preparation</p>
+                    <span class="status-badge status-wip">⏳ Coming Soon</span>
+                </a>
+                
+                <a href="questions_domain2.html" class="card">
+                    <div class="card-icon">✅</div>
+                    <h3 class="card-title">Domain 2 Quiz</h3>
+                    <p class="card-description">17 questions on model development</p>
+                    <span class="status-badge status-wip">⏳ Coming Soon</span>
+                </a>
+                
+                <a href="questions_domain3.html" class="card">
+                    <div class="card-icon">✅</div>
+                    <h3 class="card-title">Domain 3 Quiz</h3>
+                    <p class="card-description">14 questions on deployment</p>
+                    <span class="status-badge status-wip">⏳ Coming Soon</span>
+                </a>
+                
+                <a href="questions_domain4.html" class="card">
+                    <div class="card-icon">✅</div>
+                    <h3 class="card-title">Domain 4 Quiz</h3>
+                    <p class="card-description">15 questions on monitoring & security</p>
+                    <span class="status-badge status-wip">⏳ Coming Soon</span>
+                </a>
+
+            </div>
+        </section>
+        
+        <section id="other-resources" style="margin-top: 3rem;">
+            <h2 class="section-title">Other Resources</h2>
+             <div class="resource-grid">
+                <a href="../index.html" class="card">
+                    <div class="card-icon">🏠</div>
+                    <h3 class="card-title">Main Study Hub</h3>
+                    <p class="card-description">Return to the complete AWS MLA-C01 study materials</p>
+                </a>
+                <a href="kindle_sample.html" class="card">
+                    <div class="card-icon">🔬</div>
+                    <h3 class="card-title">Sample Flashcards</h3>
+                    <p class="card-description">10 sample cards from the original study guide</p>
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
